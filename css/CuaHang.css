@@ -5,7 +5,20 @@ body{
 .page-top-banner{
     width: 100%;
     height: 300px;
-    background-image: url();
+    background-image: url("../assets/images/CuaHang/breadcrumb_bg5.png");
     background-position: center;
     background-size: cover;
 }
+.wp-block-table {
+    overflow-x: auto
+}
+.wp-block-table *{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.wp-block-table table {
+    width: 100%
+}
+.wp-block-table td,.wp-block-table th {
+    word-break: break-word
+}
+
