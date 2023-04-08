@@ -36,23 +36,26 @@ body{
 .page-content{
     box-sizing: border-box;
 }
-.page-title {
-    font-family: BaloonExtra !important;
-    font-size: 36px !important;
-    font-weight: 400;
-    margin-top: 32px;
-    margin-bottom: -10px;
-}
 .page-content * {
     font-family: Muli;
-    font-size: 16.2px;
+    font-size: 16px;
     font-weight: bolder;
     user-select: none;
     text-align: left;
     color: #212529;
+    margin: 0;
+}
+.page-title {
+  font-family: BaloonExtra !important;
+  font-size: 36px !important;
+  font-weight: 400;
+  margin-top: 32px;
+  display: flex;
+  height: 54px;
+  align-items: center;
 }
 .page-content h2{
-    line-height: 10px;
+  margin-bottom: 8px;
 }
 .wp-block-table{
     margin: auto;
@@ -60,19 +63,20 @@ body{
 }
 .wp-block-table *{
     font-weight: 400;
-    line-height: 20px;
-}
-.wp-block-table strong{
-    font-weight: bolder;
+    line-height: 24px;
 }
 .wp-block-table table {
     width: 100%;
-    border-spacing: 1px 4px;
+    border-spacing: 0px;
 }
 .wp-block-table td,.wp-block-table th {
+    padding: 1;
     word-break: break-word;
-    min-width: 3ch;
     display: table-cell;
+}
+.wp-block-table strong{
+  font-weight: bolder;
+  word-break:keep-all;
 }
 .container {
     width: 100%;

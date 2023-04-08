@@ -14,8 +14,10 @@ body{
 section{
     padding: 10px;
 }
+
 p{
-    margin-bottom: 16px;
+    margin-bottom: 1rem !important;
+    line-height: 24px;
 }
 p:not(:has(.page-title)){
     font-family: Muli;
