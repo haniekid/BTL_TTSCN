@@ -2,6 +2,10 @@
     font-family: BaloonExtra;
     src: url(../assets/fonts/baloo2/Baloo2-ExtraBold.ttf);
 }
+@font-face {
+    font-family: Muli;
+    src: url(../assets/fonts/muli/Muli-Light.ttf);
+  }
 body{
     margin: 0;
     padding: 0;
