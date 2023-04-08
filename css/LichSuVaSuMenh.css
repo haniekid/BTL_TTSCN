@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Muli;
+    src: url(../assets/fonts/muli/Muli-Light.ttf);
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+section{
+    padding: 10px;
+}
+p{
+    margin-bottom: 16px;
+}
+p:not(:has(.page-title)){
+    font-family: Muli;
+    font-weight: 300;
+    font-size: 16px;
+}

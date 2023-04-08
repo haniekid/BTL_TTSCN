@@ -3,10 +3,10 @@
     src: url(../assets/fonts/baloo2/Baloo2-ExtraBold.ttf);
 }
 @font-face {
-    font-family: Muli;
-    src: url(../assets/fonts/muli/Muli-Regular.ttf);
-  }
-body{
+  font-family: Muli;
+  src: url(../assets/fonts/static/Mulish-Regular.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');body{
     margin: 0;
     padding: 0;
 }
@@ -55,7 +55,6 @@ body{
     font-family: Muli;
     font-size: 16.2px;
     font-weight: bolder;
-    text-size-adjust: 100%;
     user-select: none;
     text-align: left;
     color: #212529;
@@ -76,10 +75,12 @@ body{
 }
 .wp-block-table table {
     width: 100%;
+    border-spacing: 1px 4px;
 }
 .wp-block-table td,.wp-block-table th {
     word-break: break-word;
     min-width: 3ch;
+    display: table-cell;
 }
 .container {
     width: 100%;
