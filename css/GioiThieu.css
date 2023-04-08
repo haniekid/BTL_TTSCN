@@ -32,3 +32,6 @@ p:not(:has(.page-title)){
 .picture img{
     width: 80%;
 }
+.picture-thanh-tuu img{
+    width: 100%;
+}
