@@ -1,0 +1,208 @@
+{
+  "success": true,
+  "data": {
+    "product_name": "\u00d4 Long Xo\u00e0i Kem C\u00e0 Ph\u00ea",
+    "product_desc": "\u00d4 long Organic M\u1ed9c Ch\u00e2u quy\u1ec7n c\u00f9ng kem ph\u00f4 mai m\u1eb1n m\u1eb7n ng\u1eady b\u00e9o th\u00eam d\u1eeba s\u1ea5y gi\u00f2n B\u1ebfn Tre",
+    "product_short_desc": "",
+    "default_variation_id": 251876,
+    "image": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg",
+    "variations": [
+      {
+        "variation_id": 251876,
+        "display_price": 25000,
+        "display_regular_price": 49000,
+        "attributes": { "attribute_size": "m", "attribute_type": "cold" },
+        "sku": "101110073"
+      },
+      {
+        "variation_id": 251877,
+        "display_price": 31000,
+        "display_regular_price": 56000,
+        "attributes": { "attribute_size": "l", "attribute_type": "cold" },
+        "sku": "101210073"
+      }
+    ],
+    "customizations": [
+      { "name": "sugar-04", "value": "70% \u0111\u01b0\u1eddng" },
+      { "name": "sugar-03", "value": "50% \u0111\u01b0\u1eddng" },
+      { "name": "sugar-02", "value": "30% \u0111\u01b0\u1eddng" },
+      { "name": "sugar-01", "value": "Kh\u00f4ng \u0111\u01b0\u1eddng" },
+      { "name": "ice-05", "value": "100% \u0111\u00e1" },
+      { "name": "ice-03", "value": "50% \u0111\u00e1" },
+      { "name": "ice-01", "value": "Kh\u00f4ng \u0111\u00e1" },
+      { "name": "sugar-05", "value": "100% \u0111\u01b0\u1eddng" },
+      { "name": "is_new", "value": "true" }
+    ],
+    "comboM": [],
+    "comboL": [],
+    "toppings": [
+      {
+        "name": "topping-104100026",
+        "value": "Th\u00eam Tr\u00e2n Ch\u00e2u S\u01b0\u01a1ng Mai",
+        "price": "6000"
+      },
+      {
+        "name": "topping-104100025",
+        "value": "Th\u00eam Tr\u00e2n Ch\u00e2u Baby",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100019",
+        "value": "Th\u00eam Tr\u00e2n Ch\u00e2u Ho\u00e0ng Kim",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100018",
+        "value": "Th\u00eam Th\u1ea1ch B\u0103ng Tuy\u1ebft",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100016",
+        "value": "Th\u00eam Macchiato",
+        "price": "7000"
+      },
+      {
+        "name": "topping-104100013",
+        "value": "Th\u00eam Rau C\u00e2u",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100009",
+        "value": "Th\u00eam Tr\u00e2n Ch\u00e2u S\u1ee3i",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100007",
+        "value": "Th\u00eam \u0110\u1eadu \u0110\u1ecf",
+        "price": "6000"
+      },
+      {
+        "name": "topping-104100015",
+        "value": "Th\u00eam Pudding",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100011",
+        "value": "Th\u00eam Th\u1ea1ch Caf\u00e9",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100030",
+        "value": "Topping Th\u1ea1ch D\u1ee9a",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100030",
+        "value": "Topping Th\u1ea1ch D\u1ee9a",
+        "price": "8000"
+      },
+      {
+        "name": "topping-104100031",
+        "value": "Th\u00eam H\u1ea1t Sen",
+        "price": "9000"
+      },
+      {
+        "name": "topping-104100032",
+        "value": "Th\u00eam Th\u1ea1ch D\u00e2u T\u1eb1m",
+        "price": "5000"
+      },
+      {
+        "name": "topping-104100033",
+        "value": "Th\u00eam Ph\u00f4 Mai T\u01b0\u01a1i",
+        "price": "7000"
+      }
+    ],
+    "test": [
+      {
+        "attributes": { "attribute_size": "m", "attribute_type": "cold" },
+        "availability_html": "",
+        "backorders_allowed": false,
+        "dimensions": { "length": "", "width": "", "height": "" },
+        "dimensions_html": "N/A",
+        "display_price": 25000,
+        "display_regular_price": 49000,
+        "image": {
+          "title": "\u00d4 Long xo\u00e0i kem coffee",
+          "caption": "",
+          "url": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg",
+          "alt": "",
+          "src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-600x600.jpg",
+          "srcset": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-600x600.jpg 600w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-300x300.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-150x150.jpg 150w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-768x768.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-100x100.jpg 100w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg 1000w",
+          "sizes": "(max-width: 600px) 100vw, 600px",
+          "full_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg",
+          "full_src_w": 1000,
+          "full_src_h": 1000,
+          "gallery_thumbnail_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-100x100.jpg",
+          "gallery_thumbnail_src_w": 100,
+          "gallery_thumbnail_src_h": 100,
+          "thumb_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-300x300.jpg",
+          "thumb_src_w": 300,
+          "thumb_src_h": 300,
+          "src_w": 600,
+          "src_h": 600
+        },
+        "image_id": 251888,
+        "is_downloadable": false,
+        "is_in_stock": true,
+        "is_purchasable": true,
+        "is_sold_individually": "no",
+        "is_virtual": false,
+        "max_qty": "",
+        "min_qty": 1,
+        "price_html": "<span class=\"price\"><del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>49.000,0<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></del> <ins><span class=\"woocommerce-Price-amount amount\"><bdi>25.000,0<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></ins></span>",
+        "sku": "101110073",
+        "variation_description": "",
+        "variation_id": 251876,
+        "variation_is_active": true,
+        "variation_is_visible": true,
+        "weight": "",
+        "weight_html": "N/A"
+      },
+      {
+        "attributes": { "attribute_size": "l", "attribute_type": "cold" },
+        "availability_html": "",
+        "backorders_allowed": false,
+        "dimensions": { "length": "", "width": "", "height": "" },
+        "dimensions_html": "N/A",
+        "display_price": 31000,
+        "display_regular_price": 56000,
+        "image": {
+          "title": "\u00d4 Long xo\u00e0i kem coffee",
+          "caption": "",
+          "url": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg",
+          "alt": "",
+          "src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-600x600.jpg",
+          "srcset": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-600x600.jpg 600w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-300x300.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-150x150.jpg 150w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-768x768.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-100x100.jpg 100w, https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg 1000w",
+          "sizes": "(max-width: 600px) 100vw, 600px",
+          "full_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee.jpg",
+          "full_src_w": 1000,
+          "full_src_h": 1000,
+          "gallery_thumbnail_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-100x100.jpg",
+          "gallery_thumbnail_src_w": 100,
+          "gallery_thumbnail_src_h": 100,
+          "thumb_src": "https://tocotocotea.com/wp-content/uploads/2022/06/O-Long-xoai-kem-coffee-300x300.jpg",
+          "thumb_src_w": 300,
+          "thumb_src_h": 300,
+          "src_w": 600,
+          "src_h": 600
+        },
+        "image_id": 251888,
+        "is_downloadable": false,
+        "is_in_stock": true,
+        "is_purchasable": true,
+        "is_sold_individually": "no",
+        "is_virtual": false,
+        "max_qty": "",
+        "min_qty": 1,
+        "price_html": "<span class=\"price\"><del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>56.000,0<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></del> <ins><span class=\"woocommerce-Price-amount amount\"><bdi>31.000,0<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></ins></span>",
+        "sku": "101210073",
+        "variation_description": "",
+        "variation_id": 251877,
+        "variation_is_active": true,
+        "variation_is_visible": true,
+        "weight": "",
+        "weight_html": "N/A"
+      }
+    ]
+  }
+}
