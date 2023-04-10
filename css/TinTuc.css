@@ -148,6 +148,7 @@ ul.menu li a{
 .navigation-nav-post-card{
     display: flex;
     flex-wrap: nowrap;
+    cursor: pointer;
 }
 .navigation-nav-post-card ul.nav-links{
     list-style: none;
