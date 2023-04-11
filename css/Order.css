@@ -12,15 +12,7 @@
 *::after {
   box-sizing: border-box;
 }
-html::-webkit-scrollbar {
-  width: 4px;
-}
-html::-webkit-scrollbar-thumb {
-  background-color: #888;
-}
-html::-webkit-scrollbar-track {
-  background-color: #fff;
-}
+
 body {
   background-color: #f8f9fa;
   font-family: Barlow;
@@ -57,17 +49,19 @@ body {
   border: 1px solid var(--main-color);
   border-radius: 20px;
 }
+.order-header .order-search input:focus {
+  border: 1px solid var(--main-color);
+}
 .page-order {
-  padding: 30px 50px 30px;
+  padding: 30px 50px 0;
   display: flex;
   justify-content: space-between;
-  max-height: calc(100vh - 100px);
 }
 .page-order .order-cart {
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  box-sizing: content-box;
+  display: inline-block;
+  height: fit-content;
   background-color: #fff;
   margin: 0 20px;
   border-radius: 10px;
@@ -131,7 +125,7 @@ body {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--main-color);
 }
-.page-order .order-catagories div {
+.page-order .order-catagories a {
   padding: 8px 15px;
   margin-left: 30px;
   border: 1px solid var(--main-color);
@@ -143,21 +137,36 @@ body {
   gap: 10px;
   font-weight: 500;
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
   transition: 0.2s linear;
 }
-.page-order .order-catagories div:hover,
-.page-order .order-catagories div:focus,
-.page-order .order-catagories div.active {
+.page-order .order-catagories a:hover,
+.page-order .order-catagories a.active {
   background: var(--main-color);
   color: #fff;
 }
-.page-order .order-catagories div .order-catagories-title {
+.page-order .order-catagories a .order-catagories-title {
   white-space: nowrap;
 }
 .order-content {
-  max-height: calc(100vh - 100px);
   max-width: calc(100vw - 350px);
   margin-left: 9vw;
+  padding-bottom: 40px;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.order-content {
+  scroll-behavior: smooth;
+}
+.order-content::-webkit-scrollbar {
+  width: 4px;
+}
+.order-content::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+.order-content::-webkit-scrollbar-track {
+  background-color: #fff;
 }
 .order-content .order-container {
   display: flex;
@@ -166,16 +175,19 @@ body {
   flex-wrap: wrap;
 }
 .order-content .order-catagory h2 {
+  display: inline-block;
   font-size: 20px;
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 20px;
+  margin: 30px 0 20px;
+  border-bottom: 1px solid var(--main-color);
 }
 .order-content .product {
   width: 200px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 3px 3px 5px var(--main-color);
+  cursor: pointer;
 }
 .order-content .product img {
   width: 100%;
@@ -189,6 +201,7 @@ body {
   font-weight: 600;
   font-size: 14px;
   margin: 10px 0;
+  text-transform: capitalize;
 }
 .order-content .product .product-desc span {
   font-weight: 600;
