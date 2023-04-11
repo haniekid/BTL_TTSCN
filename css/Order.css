@@ -1,0 +1,201 @@
+:root {
+  --main-color: hsl(40, 55%, 66%);
+  --text-color: hsl(40, 95%, 25%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html::-webkit-scrollbar {
+  width: 4px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+html::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+body {
+  background-color: #f8f9fa;
+  font-family: Barlow;
+  font-size: 14px;
+  max-width: 100vw;
+}
+.button {
+  background-color: var(--main-color);
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px 10px 40px;
+  background-color: #fff;
+}
+.order-header .order-logo img {
+  width: 150px;
+}
+.order-header .order-search input {
+  width: 500px;
+  padding: 10px 20px 10px 40px;
+  background: url('../assets/images/Order/icon-search.svg') no-repeat #f8f9fa;
+  background-position: 10px center;
+  background-size: 20px;
+  font-size: 14px;
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+}
+.page-order {
+  padding: 30px 50px 30px;
+  display: flex;
+  justify-content: space-between;
+  max-height: calc(100vh - 100px);
+}
+.page-order .order-cart {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 0 20px;
+  border-radius: 10px;
+}
+.page-order .order-cart .cart-header {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--main-color);
+  padding: 10px 15px;
+}
+.page-order .order-cart .cart-header h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.page-order .order-cart .cart-header button {
+  background: none;
+  border: 1px solid var(--main-color);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 200;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.page-order .order-cart .cart-header button:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.page-order .order-cart .cart-button {
+  margin: 15px;
+  width: calc(100% - 30px);
+}
+
+.cart-group-part1 {
+  margin: 20px 15px 0;
+  display: flex;
+  align-items: center;
+}
+.cart-group-part1 img {
+  width: 20px;
+}
+.cart-group-part1 span {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 2px;
+}
+
+.page-order .order-left {
+  max-width: calc(100vw - 350px);
+}
+
+.page-order .order-catagories {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--main-color);
+}
+.page-order .order-catagories div {
+  padding: 8px 15px;
+  margin-left: 30px;
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+.page-order .order-catagories div:hover,
+.page-order .order-catagories div:focus,
+.page-order .order-catagories div.active {
+  background: var(--main-color);
+  color: #fff;
+}
+.page-order .order-catagories div .order-catagories-title {
+  white-space: nowrap;
+}
+.order-content {
+  max-height: calc(100vh - 100px);
+  max-width: calc(100vw - 350px);
+  margin-left: 9vw;
+}
+.order-content .order-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.order-content .order-catagory h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+.order-content .product {
+  width: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--main-color);
+}
+.order-content .product img {
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.order-content .product .product-desc {
+  margin: 10px;
+}
+.order-content .product .product-desc h3 {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.order-content .product .product-desc span {
+  font-weight: 600;
+  color: var(--text-color);
+}
+.order-content .product .product-desc .price {
+  margin-left: 5px;
+  text-decoration: line-through;
+  color: #888;
+}
