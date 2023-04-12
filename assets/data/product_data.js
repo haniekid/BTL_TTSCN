@@ -192,19 +192,19 @@ export const order_milk_tea_data = [
   },
   {
     title: 'Trà Xanh',
-    image: '../assets/images/Order/Oolong-tran-chau-baby-kem-cafe.jpg',
+    image: '../assets/images/Order/Tra-Xanh.jpg',
     price: '32.000đ',
     discount: '25.000đ',
   },
   {
     title: 'Sữa Tươi Trân Châu Baby Kem Café',
-    image: '../assets/images/Order/Tra-Xanh.jpg',
+    image: '../assets/images/Order/sua_tuoi_tran_chau_baby_kem_cafe.jpg',
     price: '49.000đ',
     discount: '25.000đ',
   },
   {
     title: 'Oolong Trân Châu Baby Kem Café',
-    image: '../assets/images/Order/sua_tuoi_tran_chau_baby_kem_cafe.jpg',
+    image: '../assets/images/Order/Oolong-tran-chau-baby-kem-cafe.jpg',
     price: '49.000đ',
     discount: '25.000đ',
   },

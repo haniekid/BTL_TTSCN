@@ -37,173 +37,182 @@ const onscroll = (el, listener) => {
   el.addEventListener('scroll', listener);
 };
 
-const order_container1 = select('.order-catogory1 .order-container');
-order_hots_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
+let order_container1 = select('.order-catogory1 .order-container');
+let order_container2 = select('.order-catogory2 .order-container');
+let order_container3 = select('.order-catogory3 .order-container');
+let order_container4 = select('.order-catogory4 .order-container');
+let order_container5 = select('.order-catogory5 .order-container');
+let order_container6 = select('.order-catogory6 .order-container');
 
-  product_container.appendChild(product_desc);
-  order_container1.appendChild(product_container);
-});
-const order_container2 = select('.order-catogory2 .order-container');
-instant_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
+// ---------------------- Generate code start
+function init_order_hots_data() {
+  order_hots_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container1.appendChild(newDiv);
+  });
+}
+init_order_hots_data();
 
-  product_container.appendChild(product_desc);
-  order_container2.appendChild(product_container);
-});
+function init_instant_data() {
+  instant_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container2.appendChild(newDiv);
+  });
+}
+init_instant_data();
 
-const order_container3 = select('.order-catogory3 .order-container');
-order_milk_tea_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
+function init_order_fresh_fruit_data() {
+  order_fresh_fruit_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container3.appendChild(newDiv);
+  });
+}
+init_order_fresh_fruit_data();
 
-  product_container.appendChild(product_desc);
-  order_container3.appendChild(product_container);
-});
+function init_order_macchiato_cream_data() {
+  order_macchiato_cream_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container4.appendChild(newDiv);
+  });
+}
+init_order_macchiato_cream_data();
 
-const order_container4 = select('.order-catogory4 .order-container');
-order_fresh_fruit_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
-
-  product_container.appendChild(product_desc);
-  order_container4.appendChild(product_container);
-});
-
-const order_container5 = select('.order-catogory5 .order-container');
-order_macchiato_cream_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
-
-  product_container.appendChild(product_desc);
-  order_container5.appendChild(product_container);
-});
-
-const order_container6 = select('.order-catogory6 .order-container');
-order_sua_chua_data.map((product) => {
-  var product_container = document.createElement('div');
-  product_container.className = 'product';
-  var img = document.createElement('img');
-  img.setAttribute('src', product.image);
-  img.className = 'product-thumb';
-  product_container.appendChild(img);
-  var product_desc = document.createElement('div');
-  product_desc.className = 'product-desc';
-  var product_title = document.createElement('h3');
-  product_title.className = 'product-name';
-  product_title.innerText = product.title;
-  var price_discount = document.createElement('span');
-  price_discount.className = 'price-discount';
-  price_discount.innerHTML = product.discount;
-  var price = document.createElement('span');
-  price.className = 'price';
-  price.innerHTML = product.discount === product.price ? '' : product.price;
-  product_desc.appendChild(product_title);
-  product_desc.appendChild(price_discount);
-  product_desc.appendChild(price);
-
-  product_container.appendChild(product_desc);
-  order_container6.appendChild(product_container);
-});
+function init_order_milk_tea_data() {
+  order_milk_tea_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container5.appendChild(newDiv);
+  });
+}
+init_order_milk_tea_data();
+function init6() {
+  order_sua_chua_data.forEach((product, key) => {
+    if (product.discount === product.price) {
+      product.price = '';
+    }
+    let newDiv = document.createElement('div');
+    newDiv.className = 'product';
+    newDiv.innerHTML = `
+        <img
+          src=${product.image}
+          alt=""
+          class="product-thumb"
+        />
+        <div class="product-desc">
+          <h3 class="product-name">${product.title}</h3>
+          <span class="cost">${product.price}</span>
+          <span class="price-discount">${product.discount}</span>
+          <button class="btn-add-to-card" onclick="addToCard(${key}>Đặt hàng</button>
+        </div>
+    `;
+    order_container6.appendChild(newDiv);
+  });
+}
+init6();
+/* ------------------ Generate code end ------------------ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  let selectHeader = select('#order-header');
+  if (selectHeader) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader.classList.add('header-scrolled');
+      } else {
+        selectHeader.classList.remove('header-scrolled');
+      }
+    };
+    window.addEventListener('load', headerScrolled);
+    onscroll(document, headerScrolled);
+  }
+
   /**
    * Navbar links active state on scroll
    */
   let navbarlinks = select('.order-catagories .scrollto', true);
-  let orderContent = select('.order-content');
   const navbarlinksActive = () => {
     let position = window.scrollY + 200;
     navbarlinks.forEach((navbarlink) => {
@@ -220,15 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-  orderContent.addEventListener('load', navbarlinksActive);
-  onscroll(orderContent, navbarlinksActive);
+  window.addEventListener('load', navbarlinksActive);
+  onscroll(window, navbarlinksActive);
 
   /**
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
     let elementPos = select(el).offsetTop - 150;
-    orderContent.scrollTo({
+    window.scrollTo({
       top: elementPos,
       behavior: 'smooth',
     });
@@ -260,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  orderContent.addEventListener('load', () => {
-    if (orderContent.location.hash) {
-      if (select(orderContent.location.hash)) {
-        scrollto(orderContent.location.hash);
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      if (select(window.location.hash)) {
+        scrollto(window.location.hash);
       }
     }
   });

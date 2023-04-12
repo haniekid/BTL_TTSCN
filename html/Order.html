@@ -11,12 +11,19 @@
     />
     <title>TocoTocoTea - Danh muc sản phẩm</title>
     <link rel="stylesheet" href="../css/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script type="module" src="../javascript/order.js"></script>
     <link rel="stylesheet" href="../css/Order.css" />
   </head>
   <body>
-    <!-- ====================== Order start ============================ -->
-    <div class="order-header">
+    <!-- =========== Order header ============= -->
+    <div class="order-header" id="order-header">
       <a href="order.html" class="order-logo">
         <img src="../assets/images/Order/logo.png" alt="Trang chu" />
       </a>
@@ -24,9 +31,14 @@
         <input type="text" placeholder="Tìm kiếm sản phẩm..." />
       </form>
       <div class="order-user">
+        <div class="shopping">
+          <ion-icon name="cart-outline" class="cart"></ion-icon>
+          <span class="quantity">0</span>
+        </div>
         <button class="button login-button">Login</button>
       </div>
     </div>
+    <!-- ============== order page ================= -->
     <div class="page-order">
       <div class="order-left">
         <div class="order-catagories">
@@ -82,22 +94,15 @@
           </div>
         </div>
       </div>
-      <div class="order-cart">
-        <div class="cart-header">
-          <h3 cart-title>Giỏ hàng của tôi</h3>
-          <button cart-button-remove>Xóa tất cả</button>
-        </div>
-        <div class="cart-group-bottom">
-          <div class="cart-group-part1">
-            <img src="../assets/images/Order/icon-glass-tea.png" alt="" />
-            <span> x </span>
-            <span class="cart-count">0</span>
-            <span> = </span>
-            <span class="cart-price">0đ</span>
-          </div>
-          <button class="button cart-button">Thanh toán</button>
-        </div>
-      </div>
     </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
