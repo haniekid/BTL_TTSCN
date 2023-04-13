@@ -99,6 +99,7 @@ a:hover {
 }
 #order-header .cart .quantity {
   position: absolute;
+  display: block;
   background: var(--main-color);
   border-radius: 50%;
   display: flex;
