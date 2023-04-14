@@ -48,10 +48,10 @@ function init_order_hots_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </button>
         </div>
+        <button class="btn-add-to-card">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
     `;
     order_container1.appendChild(newDiv);
   });
@@ -59,7 +59,7 @@ function init_order_hots_data() {
 init_order_hots_data();
 
 function init_instant_data() {
-  instant_data.forEach((product, key) => {
+  instant_data.map((product, key) => {
     if (product.discount === product.price) {
       product.price = '';
     }
@@ -88,7 +88,7 @@ function init_instant_data() {
 init_instant_data();
 
 function init_order_fresh_fruit_data() {
-  order_fresh_fruit_data.forEach((product, key) => {
+  order_fresh_fruit_data.map((product, key) => {
     if (product.discount === product.price) {
       product.price = '';
     }
@@ -117,7 +117,7 @@ function init_order_fresh_fruit_data() {
 init_order_fresh_fruit_data();
 
 function init_order_macchiato_cream_data() {
-  order_macchiato_cream_data.forEach((product, key) => {
+  order_macchiato_cream_data.map((product, key) => {
     if (product.discount === product.price) {
       product.price = '';
     }
@@ -146,7 +146,7 @@ function init_order_macchiato_cream_data() {
 init_order_macchiato_cream_data();
 
 function init_order_milk_tea_data() {
-  order_milk_tea_data.forEach((product, key) => {
+  order_milk_tea_data.map((product, key) => {
     if (product.discount === product.price) {
       product.price = '';
     }
@@ -174,7 +174,7 @@ function init_order_milk_tea_data() {
 }
 init_order_milk_tea_data();
 function init6() {
-  order_sua_chua_data.forEach((product, key) => {
+  order_sua_chua_data.map((product, key) => {
     if (product.discount === product.price) {
       product.price = '';
     }

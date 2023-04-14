@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
+$(document).ready(function () {
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (all) {
         selectEl.forEach((e) => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener);
+        $(selectEl).on(type, listener);
       }
     }
   };
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function () {
         selectHeader.classList.remove('header-scrolled');
       }
     };
-    window.addEventListener('load', headerScrolled);
+    $(window).on('load', headerScrolled);
     onscroll(document, headerScrolled);
   }
 
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     });
   };
-  window.addEventListener('load', navbarlinksActive);
+  $(window).on('load', navbarlinksActive);
   onscroll(window, navbarlinksActive);
 
   /**
@@ -163,9 +163,7 @@ window.addEventListener('DOMContentLoaded', function () {
           value.quantity - 1
         })">-</button>
                       <div class="count">${value.quantity}</div>
-                      <button onclick="changeQuantity(${key}, ${
-          value.quantity + 1
-        })">+</button>
+                      <button onclick="handleClick(e)">+</button>
                   </div>`;
         listCard.appendChild(newDiv);
       }
@@ -192,8 +190,110 @@ window.addEventListener('DOMContentLoaded', function () {
   /**
    * Chức năng ẩn hiện product container
    */
-  let productContainer = select('.order-container');
-  on('click', '.collapse', () => {
-    productContainer.classList.toggle('collapsed');
+  $('.order-container-header').click(function () {
+    $(this).parent().children('.order-container').slideToggle();
+  });
+
+  /**
+   * Xử lý sự kiện ấn vào nút thêm
+   */
+  $('.btn-add-to-card').click(function handleClickAddProduct(e) {
+    var popupHTML = $(`
+                      <div class="popup-choose-product">
+                        <div class="ss-1 product-infomation">
+                          <div class="ss-1-left">
+                            <img id="pp-product-img" src="" alt="">
+                          </div>
+                          <div class="ss-1-right">
+                            <div id="pp-product-name" class="product-name">Trà sữa loading...</div>
+                            <div class="product-price">
+                              <div id="pp-product-price" class="price">...đ</div>
+                              <div id="pp-product-regular-price" class="regular-price">...đ</div>
+                            </div>
+                            <div id="pp-product-short-desc" class="product-info">Chưa có thông tin.</div>
+                            <div class="wrap-quantity d-flex align-items-center">
+                              <div class="change-quantity-wrap">
+                                <div class="change-quantity decrease">-</div>
+                                <div class="amount">1</div>
+                                <div class="change-quantity increase">+</div>
+                              </div>
+                              <div class="btn-price-product">+ 25,000đ</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ss-2 product-customize">
+                          <div class="customize-section type">
+                            <div class="customize-title">
+                              <div class="left">Chọn loại</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section comboM">
+                            <div class="customize-title">
+                              <div class="left">Chọn món size M</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section comboL">
+                            <div class="customize-title">
+                              <div class="left">Chọn món size L</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section size">
+                            <div class="customize-title">
+                              <div class="left">Chọn size</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section sugar">
+                            <div class="customize-title">
+                              <div class="left">Chọn đường</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section ice">
+                            <div class="customize-title">
+                              <div class="left">Chọn đá</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                          <div class="customize-section topping">
+                            <div class="customize-title">
+                              <div class="left">Chọn topping</div>
+                              <div class="right">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </div>
+                            <div class="customize-content">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    `);
   });
 });

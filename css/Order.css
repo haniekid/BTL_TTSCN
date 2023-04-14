@@ -89,6 +89,7 @@ a:hover {
   z-index: 10;
   font-size: 2rem;
   color: var(--text-color);
+  cursor: pointer;
 }
 
 #order-header .order-search input {
@@ -115,6 +116,7 @@ a:hover {
 #order-header .cart {
   font-size: 3rem;
   color: var(--text-color);
+  cursor: pointer;
 }
 #order-header .shopping span#quantity {
   position: absolute;
@@ -165,6 +167,14 @@ a:hover {
     transform: scale(1);
   }
 }
+@media screen and (max-width: 576px) {
+  #order-header {
+    padding: 0.5rem 1rem;
+  }
+  .login-button {
+    padding: 0.7rem 2rem;
+  }
+}
 
 /* ------------------------------------
 # Order cart
@@ -172,9 +182,10 @@ a:hover {
 .page-order {
   padding: 3rem 10rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-.page-order .order-cart {
+/* .page-order .order-cart {
   width: 300px;
   box-sizing: content-box;
   display: inline-block;
@@ -227,16 +238,34 @@ a:hover {
   font-size: 16px;
   font-weight: 500;
   margin: 0 2px;
-}
+} */
 
-.page-order .order-catagories {
-  display: none;
-  flex-wrap: nowrap;
+/* ----------------------------------- 
+# order catagories
+------------------------------------- */
+.page-order .order-catagories-container {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: space-around;
+  width: 100%;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--main-color);
+}
+.page-order .order-catagories #menu-catagories {
+  display: none;
+  position: fixed;
+  bottom: 3rem;
+  left: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ee4d2d;
+  color: white;
+  font-size: 2.5rem;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
 }
 .page-order .order-catagories a {
   padding: 8px 15px;
@@ -262,6 +291,11 @@ a:hover {
 .page-order .order-catagories a .order-catagories-title {
   white-space: nowrap;
 }
+@media screen and (max-width: 992px) {
+  .page-order .order-catagories #menu-catagories {
+    display: block;
+  }
+}
 /* ------------------------------------
 # Order product
 ------------------------------------- */
@@ -279,67 +313,68 @@ a:hover {
   row-gap: 2rem;
   align-items: stretch;
 }
+.order-content .order-catagory {
+  width: 100%;
+}
 .order-content .order-catagory h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--text-color);
   margin: 5rem 0 2rem 0;
   border-bottom: 1px solid var(--main-color);
+  cursor: pointer;
 }
 .order-content .order-catagory:first-child h2 {
   margin-top: 3rem;
 }
-.order-content .order-catagory .collapse {
-  margin-left: auto;
+.order-content .order-catagory .btn-collapse {
   font-size: 3rem;
   cursor: pointer;
 }
-.order-content .order-container {
-  transition: 0.2s;
-}
-.order-content .order-container.collapsed {
-  transform: scaleY(0);
-  transform-origin: top;
-  transition-delay: 0.2s;
-  height: 0;
-  transition: 0.2s;
-}
+
 .order-content .product {
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0.1rem 0.1rem 1.6rem var(--main-color);
   cursor: pointer;
+  position: relative;
 }
 .order-content .product img {
   width: 100%;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-.order-content .product .product-desc {
-  margin: 10px;
-}
-.order-content .product .product-desc h3 {
+
+.order-content .product h3 {
   font-weight: 600;
   font-size: 2rem;
-  margin: 10px 0;
+  margin-bottom: 1rem;
   text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
 }
-.order-content .product .product-desc span {
+.order-content .product .product-desc {
+  padding: 1rem 1rem 1.5rem;
+}
+.order-content .product span {
   font-weight: 600;
   color: var(--text-color);
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
-.order-content .product .product-desc .cost {
+.order-content .product .cost {
   margin-left: 5px;
   text-decoration: line-through;
   color: #888;
 }
-.order-content .product .product-desc .btn-add-to-card {
-  width: 100%;
+.order-content .product .btn-add-to-card {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
   margin-top: auto;
   border: none;
   background: none;
