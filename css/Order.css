@@ -61,7 +61,7 @@ a:hover {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: #fff;
-  transition: 0.4s ease-in-out;
+  transition: 0.4s ease;
 }
 #order-header.header-scrolled {
   position: fixed;
@@ -70,6 +70,7 @@ a:hover {
   right: 0;
   background-color: #fff;
   z-index: 1000;
+  transition: 0.4s ease;
 }
 #order-header .order-logo img {
   width: 15rem;
@@ -285,10 +286,10 @@ a:hover {
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--text-color);
-  margin: 4rem 0 2rem 0;
+  margin: 5rem 0 2rem 0;
   border-bottom: 1px solid var(--main-color);
 }
-.order-content .order-catagory h2:first-child {
+.order-content .order-catagory:first-child h2 {
   margin-top: 3rem;
 }
 .order-content .order-catagory .collapse {
@@ -296,11 +297,15 @@ a:hover {
   font-size: 3rem;
   cursor: pointer;
 }
+.order-content .order-container {
+  transition: 0.2s;
+}
 .order-content .order-container.collapsed {
   transform: scaleY(0);
   transform-origin: top;
+  transition-delay: 0.2s;
   height: 0;
-  transition-duration: 0.2s;
+  transition: 0.2s;
 }
 .order-content .product {
   background-color: #fff;
