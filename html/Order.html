@@ -18,7 +18,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script type="module" src="../javascript/order.js"></script>
+    <script type="module" src="../javascript/orderGenerate.js"></script>
     <link rel="stylesheet" href="../css/Order.css" />
   </head>
   <body>
@@ -32,8 +32,16 @@
       </form>
       <div class="order-user">
         <div class="shopping">
-          <ion-icon name="cart-outline" class="cart"></ion-icon>
-          <span class="quantity">0</span>
+          <ion-icon name="cart-outline" class="cart" id="cart"></ion-icon>
+          <span class="quantity" id="quantity">0</span>
+          <div class="card" id="card">
+            <h1>Giỏ hàng</h1>
+            <ul class="listCard"></ul>
+            <div class="checkOut">
+              <div class="total">0</div>
+              <div class="closeShopping">Close</div>
+            </div>
+          </div>
         </div>
         <button class="button login-button">Login</button>
       </div>
@@ -104,5 +112,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script type="module" src="../javascript/order.js"></script>
   </body>
 </html>
