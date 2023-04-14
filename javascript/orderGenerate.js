@@ -41,12 +41,16 @@ function init_order_hots_data() {
           class="product-thumb"
         />
         <div class="product-desc">
-          <h3 class="product-name">${product.title}</h3>
+          <h3 class="product-name">
+            ${product.title}
+          </h3>
           <div className="price">
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container1.appendChild(newDiv);
@@ -73,7 +77,9 @@ function init_instant_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container2.appendChild(newDiv);
@@ -100,7 +106,9 @@ function init_order_fresh_fruit_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container3.appendChild(newDiv);
@@ -127,7 +135,9 @@ function init_order_macchiato_cream_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container4.appendChild(newDiv);
@@ -154,7 +164,9 @@ function init_order_milk_tea_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container5.appendChild(newDiv);
@@ -180,7 +192,9 @@ function init6() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">Đặt hàng</button>
+          <button class="btn-add-to-card" onclick="addToCard(${key})">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </button>
         </div>
     `;
     order_container6.appendChild(newDiv);

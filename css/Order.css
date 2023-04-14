@@ -61,20 +61,38 @@ a:hover {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: #fff;
+  transition: 0.4s ease-in-out;
 }
 #order-header.header-scrolled {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  background-color: #fff;
+  z-index: 1000;
 }
 #order-header .order-logo img {
-  width: 150px;
+  width: 15rem;
 }
-#order-header .order-search input {
+
+#order-header .order-search {
   width: 50rem;
+  position: relative;
+  margin-right: 3.5rem;
+}
+#order-header .order-search #btn-search {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 10;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+#order-header .order-search input {
+  width: 100%;
   padding: 1rem 2rem 1rem 4rem;
-  /* background: url('../assets/images/Order/icon-search.svg') no-repeat #f8f9fa; */
   background-position: 10px center;
   background-size: 20px;
   font-size: 14px;
@@ -91,17 +109,17 @@ a:hover {
 #order-header .shopping {
   position: relative;
   text-align: right;
-  margin-right: 30px;
+  margin-right: 3rem;
 }
 #order-header .cart {
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--text-color);
 }
 #order-header .shopping span#quantity {
   position: absolute;
-  top: -3px;
+  top: -0.3rem;
   left: 80%;
-  padding: 3px 8px;
+  padding: 0.3rem 0.8rem;
   background: var(--main-color);
   border-radius: 50%;
   color: #fff;
@@ -109,14 +127,51 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+#order-header .shopping .card {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  #order-header .order-search {
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  #order-header {
+    padding: 1rem 3rem;
+  }
+  #order-header .order-logo img {
+    width: 14.5rem;
+  }
+  #order-header .order-search #btn-search {
+    left: 100%;
+    font-size: 3rem;
+  }
+  #order-header .order-search input {
+    position: fixed;
+    top: 7rem;
+    left: 0;
+    right: 0;
+    padding-left: 2rem;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition-duration: 0.3s;
+  }
+  #order-header .order-search input.active {
+    transform: scale(1);
+  }
+}
 
 /* ------------------------------------
 # Order cart
 ------------------------------------- */
 .page-order {
-  padding: 30px 50px 0;
+  padding: 3rem 10rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .page-order .order-cart {
   width: 300px;
@@ -174,7 +229,7 @@ a:hover {
 }
 
 .page-order .order-catagories {
-  display: flex;
+  display: none;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
@@ -210,30 +265,47 @@ a:hover {
 # Order product
 ------------------------------------- */
 .order-content {
-  margin: 0 7rem;
   padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .order-content .order-container {
-  max-width: calc(100vw - 7rem);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
   align-items: stretch;
-  gap: 3rem;
-  flex-wrap: wrap;
 }
 .order-content .order-catagory h2 {
-  display: inline-block;
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--text-color);
-  margin: 30px 0 20px;
+  margin: 4rem 0 2rem 0;
   border-bottom: 1px solid var(--main-color);
 }
+.order-content .order-catagory h2:first-child {
+  margin-top: 3rem;
+}
+.order-content .order-catagory .collapse {
+  margin-left: auto;
+  font-size: 3rem;
+  cursor: pointer;
+}
+.order-content .order-container.collapsed {
+  transform: scaleY(0);
+  transform-origin: top;
+  height: 0;
+  transition-duration: 0.2s;
+}
 .order-content .product {
-  max-width: 28rem;
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px var(--main-color);
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 1.6rem var(--main-color);
   cursor: pointer;
 }
 .order-content .product img {
@@ -243,10 +315,6 @@ a:hover {
 }
 .order-content .product .product-desc {
   margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
 }
 .order-content .product .product-desc h3 {
   font-weight: 600;
@@ -266,13 +334,44 @@ a:hover {
   color: #888;
 }
 .order-content .product .product-desc .btn-add-to-card {
-  width: 90%;
-  padding: 0.8rem 0.5rem;
-  margin-top: 1rem;
-  border: 2px solid var(--main-color);
-  border-radius: 2rem;
-  font-size: 1.5rem;
+  width: 100%;
+  margin-top: auto;
+  border: none;
+  background: none;
+  box-sizing: content-box;
+  font-size: 3rem;
   font-weight: 500;
+  text-align: right;
   color: var(--text-color);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .page-order {
+    padding-top: 0;
+    padding-left: 2rem;
+    padding-right: 0;
+  }
+  .order-content {
+    width: calc(100vw - 4rem);
+    padding: 0 1.5rem;
+  }
+  .order-content .order-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 992px) {
+  .order-content .order-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .order-content .order-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 400px) {
+  .order-content .order-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
