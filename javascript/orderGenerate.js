@@ -77,7 +77,7 @@ function init_instant_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
+          <button class="btn-add-to-card">
             <ion-icon name="add-circle-outline"></ion-icon>
           </button>
         </div>
@@ -106,7 +106,7 @@ function init_order_fresh_fruit_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
+          <button class="btn-add-to-card">
             <ion-icon name="add-circle-outline"></ion-icon>
           </button>
         </div>
@@ -135,7 +135,7 @@ function init_order_macchiato_cream_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
+          <button class="btn-add-to-card">
             <ion-icon name="add-circle-outline"></ion-icon>
           </button>
         </div>
@@ -164,7 +164,7 @@ function init_order_milk_tea_data() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
+          <button class="btn-add-to-card">
             <ion-icon name="add-circle-outline"></ion-icon>
           </button>
         </div>
@@ -192,7 +192,7 @@ function init6() {
             <span class="price-discount">${product.discount}</span>
             <span class="cost">${product.price}</span>
           </div>
-          <button class="btn-add-to-card" onclick="addToCard(${key})">
+          <button class="btn-add-to-card">
             <ion-icon name="add-circle-outline"></ion-icon>
           </button>
         </div>

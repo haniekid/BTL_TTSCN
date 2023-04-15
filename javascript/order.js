@@ -125,58 +125,58 @@ $(document).ready(function () {
   /**
    * Xử lý các chức năng với giỏ hàng
    */
-  let listCards = [];
-  let listCard = select('.listCard');
-  let total = select('.total');
-  let quantity = select('.quantity');
-  let cart = select('#cart');
+  // let listCards = [];
+  // let listCard = select('.listCard');
+  // let total = select('.total');
+  // let quantity = select('.quantity');
+  // let cart = select('#cart');
 
-  /**
-   * Chức năng thêm vào cart khi click vào nút add
-   */
-  function addToCard(key, originArray) {
-    if (listCards[key] == null) {
-      // copy product form list to list card
-      listCards[key] = JSON.parse(JSON.stringify(originArray[key]));
-      listCards[key].quantity = 1;
-    }
-    reloadCard();
-  }
-  function reloadCard() {
-    listCard.innerHTML = '';
-    let count = 0;
-    let totalPrice = 0;
-    listCards.forEach((value, key) => {
-      totalPrice = totalPrice + value.price;
-      count = count + value.quantity;
-      if (value != null) {
-        let newDiv = document.createElement('li');
-        newDiv.innerHTML = `
-                  <div><img src="image/${value.image}"/></div>
-                  <div>${value.name}</div>
-                  <div>${value.price.toLocaleString()}</div>
-                  <div>
-                      <button onclick="changeQuantity(${key}, ${
-          value.quantity - 1
-        })">-</button>
-                      <div class="count">${value.quantity}</div>
-                      <button onclick="handleClick(e)">+</button>
-                  </div>`;
-        listCard.appendChild(newDiv);
-      }
-    });
-    total.innerText = totalPrice.toLocaleString();
-    quantity.innerText = count;
-  }
-  function changeQuantity(key, quantity) {
-    if (quantity == 0) {
-      delete listCards[key];
-    } else {
-      listCards[key].quantity = quantity;
-      listCards[key].price = quantity * products[key].price;
-    }
-    reloadCard();
-  }
+  // /**
+  //  * Chức năng thêm vào cart khi click vào nút add
+  //  */
+  // function addToCard(key, originArray) {
+  //   if (listCards[key] == null) {
+  //     // copy product form list to list card
+  //     listCards[key] = JSON.parse(JSON.stringify(originArray[key]));
+  //     listCards[key].quantity = 1;
+  //   }
+  //   reloadCard();
+  // }
+  // function reloadCard() {
+  //   listCard.innerHTML = '';
+  //   let count = 0;
+  //   let totalPrice = 0;
+  //   listCards.forEach((value, key) => {
+  //     totalPrice = totalPrice + value.price;
+  //     count = count + value.quantity;
+  //     if (value != null) {
+  //       let newDiv = document.createElement('li');
+  //       newDiv.innerHTML = `
+  //                 <div><img src="image/${value.image}"/></div>
+  //                 <div>${value.name}</div>
+  //                 <div>${value.price.toLocaleString()}</div>
+  //                 <div>
+  //                     <button onclick="changeQuantity(${key}, ${
+  //         value.quantity - 1
+  //       })">-</button>
+  //                     <div class="count">${value.quantity}</div>
+  //                     <button onclick="handleClick(e)">+</button>
+  //                 </div>`;
+  //       listCard.appendChild(newDiv);
+  //     }
+  //   });
+  //   total.innerText = totalPrice.toLocaleString();
+  //   quantity.innerText = count;
+  // }
+  // function changeQuantity(key, quantity) {
+  //   if (quantity == 0) {
+  //     delete listCards[key];
+  //   } else {
+  //     listCards[key].quantity = quantity;
+  //     listCards[key].price = quantity * products[key].price;
+  //   }
+  //   reloadCard();
+  // }
   /**
    * Chức năng ẩn hiện card khi click vào icon giỏ hàng
    */
@@ -189,109 +189,6 @@ $(document).ready(function () {
    */
   $('.order-container-header').click(function () {
     $(this).parent().children('.order-container').slideToggle();
-  });
-
-  /**
-   * Xử lý sự kiện ấn vào nút thêm
-   */
-  $('.btn-add-to-card').click(function handleClickAddProduct(e) {
-    var popupHTML = $(`
-                      <div class="popup-choose-product">
-                        <div class="ss-1 product-infomation">
-                          <div class="ss-1-left">
-                            <img id="pp-product-img" src="" alt="">
-                          </div>
-                          <div class="ss-1-right">
-                            <div id="pp-product-name" class="product-name">Trà sữa loading...</div>
-                            <div class="product-price">
-                              <div id="pp-product-price" class="price">...đ</div>
-                              <div id="pp-product-regular-price" class="regular-price">...đ</div>
-                            </div>
-                            <div id="pp-product-short-desc" class="product-info">Chưa có thông tin.</div>
-                            <div class="wrap-quantity d-flex align-items-center">
-                              <div class="change-quantity-wrap">
-                                <div class="change-quantity decrease">-</div>
-                                <div class="amount">1</div>
-                                <div class="change-quantity increase">+</div>
-                              </div>
-                              <div class="btn-price-product">+ 25,000đ</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="ss-2 product-customize">
-                          <div class="customize-section type">
-                            <div class="customize-title">
-                              <div class="left">Chọn loại</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section comboM">
-                            <div class="customize-title">
-                              <div class="left">Chọn món size M</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section comboL">
-                            <div class="customize-title">
-                              <div class="left">Chọn món size L</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section size">
-                            <div class="customize-title">
-                              <div class="left">Chọn size</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section sugar">
-                            <div class="customize-title">
-                              <div class="left">Chọn đường</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section ice">
-                            <div class="customize-title">
-                              <div class="left">Chọn đá</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                          <div class="customize-section topping">
-                            <div class="customize-title">
-                              <div class="left">Chọn topping</div>
-                              <div class="right">
-                                <i class="fas fa-angle-down"></i>
-                              </div>
-                            </div>
-                            <div class="customize-content">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    `);
   });
 
   /**
@@ -320,4 +217,92 @@ $(document).ready(function () {
   onscroll(window, () => {
     card.classList.remove('active');
   });
+  /**
+   * Xử lý chức năng ẩn hiện popup
+   */
+  let wrapPopup = select('.wrap-popup');
+  /**
+   * Hàm xử lý sự kiện đong popup
+   */
+  const closePopup = () => {
+    wrapPopup.classList.remove('active');
+  };
+  on('click', '.close-btn', closePopup);
+  on('click', '.btn-price-product', closePopup);
+
+  /**
+   * Hàm xử lý sự kiện mở popup
+   */
+  let PopupImg = select('#pp-product-img');
+  let PopupName = select('#pp-product-name');
+  let PopupPrice = select('#pp-product-price');
+  let PopupCost = select('#pp-product-regular-price');
+
+  function handleAddToCartClick() {
+    // Phương thức closest trả về tra gân nhất nếu không có trả về null
+    PopupImg.src = $(this).find('.product-thumb').attr('src');
+    PopupName.innerHTML = $(this).find('.product-name').text();
+    PopupPrice.innerHTML = $(this).find('.price-discount').text();
+    PopupCost.innerHTML = $(this).find('.cost').text();
+    wrapPopup.classList.add('active');
+  }
+  $('.product').click(handleAddToCartClick);
+
+  /**
+   * Hàm xử lý sự kiện collapse customize-content
+   */
+  $('.customize-title').click(function () {
+    $(this).parent().children('.customize-content').slideToggle();
+  });
+
+  /** Xử lý sự kiện thay đổi nội dung btn thành tổng giá
+   *
+   */
+  // Lấy giá sản phẩm giảm giá
+  var amount = 1;
+  var priceDiscount = parseFloat($('#pp-product-price').text());
+  var totalPrice = priceDiscount * amount;
+
+  $('.change-quantity-wrap').on('click', '.change-quantity', function () {
+    var $amount = $(this).siblings('.amount');
+    if ($(this).hasClass('decrease')) {
+      if (parseInt($amount.text()) > 1) {
+        $amount.text(parseInt($amount.text()) - 1);
+        amount--;
+      }
+    } else if ($(this).hasClass('increase')) {
+      $amount.text(parseInt($amount.text()) + 1);
+      amount++;
+    }
+    totalPrice = priceDiscount * amount;
+    $('.btn-price-product').text(`+ ${totalPrice.toFixed(3)}đ`);
+  });
+
+  $("input[name='topping']").on('change', function () {
+    var checkboxValue = $(this).siblings('label').attr('value');
+
+    if ($(this).is(':checked')) {
+      totalPrice += parseFloat(checkboxValue);
+    } else {
+      totalPrice -= parseFloat(checkboxValue);
+    }
+
+    // Cập nhật giá trị lên button
+    $('.btn-price-product').text(`+ ${totalPrice.toFixed(3)}đ`);
+  });
+
+  /**
+   * Set maxHeight cho product-customize
+   */
+  // get the height of the popup
+  const popupHeight = $('.popup-add-product').height();
+
+  // get the height of the product-infomation section
+  const productInfoHeight = $('.product-infomation').height();
+
+  // calculate the remaining height
+  const remainingHeight = popupHeight - productInfoHeight;
+
+  // set the max-height of the product-customize section
+  $('.product-customize').css('max-height', remainingHeight + 'px');
 });
