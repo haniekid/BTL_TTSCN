@@ -45,11 +45,26 @@
           <ion-icon name="cart-outline" class="cart" id="cart"></ion-icon>
           <span class="quantity" id="quantity">0</span>
           <div class="card" id="card">
-            <h1>Giỏ hàng</h1>
-            <ul class="listCard"></ul>
-            <div class="checkOut">
-              <div class="total">0</div>
-              <div class="closeShopping">Close</div>
+            <div class="card-header">
+              <h1 class="card-title">Giỏ hàng</h1>
+              <button class="card-remove">Xóa tất cả</button>
+            </div>
+            <ul class="listCard">
+              Chưa có sản phẩm nào!
+            </ul>
+            <div class="card-group-bottom">
+              <div class="card-ss2">
+                <img
+                  class="img-toco"
+                  src="../assets/images/Order/icon-glass-tea.png"
+                  alt=""
+                />
+                <span class="card-ss2-one">x</span>
+                <span class="card-ss2-two">0</span>
+                <span class="card-ss2-three">=</span>
+                <span class="card-ss2-four">0đ</span>
+              </div>
+              <button class="button-card">Thanh toán</button>
             </div>
           </div>
         </div>
@@ -59,7 +74,9 @@
     <!-- ============== order page ================= -->
     <div class="page-order">
       <div class="order-catagories">
-        <ion-icon name="menu-outline" id="menu-catagories"></ion-icon>
+        <button class="btn-menu">
+          <i class="fa-solid fa-bars btn-menu-content"></i>
+        </button>
         <div class="order-catagories-container">
           <a href="#order-catogory1" class="scrollto active">
             <span class="order-catagories-title">Món nổi bật</span>

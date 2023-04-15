@@ -89,12 +89,9 @@ $(document).ready(function () {
       if (select(this.hash)) {
         e.preventDefault();
 
-        let body = select('body');
-        if (body.classList.contains('mobile-nav-active')) {
-          body.classList.remove('mobile-nav-active');
-          let navbarToggle = select('.mobile-nav-toggle');
-          navbarToggle.classList.toggle('bi-list');
-          navbarToggle.classList.toggle('bi-x');
+        let catagoriesContainer = select('.order-catagories-container');
+        if (catagoriesContainer.classList.contains('active')) {
+          catagoriesContainer.classList.remove('active');
         }
         scrollto(this.hash);
       }
@@ -295,5 +292,32 @@ $(document).ready(function () {
                         </div>
                       </div>
                     `);
+  });
+
+  /**
+   * Xử lý chức năng ẩn hiện menu danh mục
+   */
+  let btnMenu = select('.btn-menu-content');
+  let catagoriesContainer = select('.order-catagories-container');
+  on('click', '.btn-menu', () => {
+    btnMenu.classList.toggle('fa-bars');
+    btnMenu.classList.toggle('fa-xmark');
+    catagoriesContainer.classList.toggle('active');
+  });
+  onscroll(window, () => {
+    btnMenu.classList.add('fa-bars');
+    btnMenu.classList.remove('fa-xmark');
+    catagoriesContainer.classList.remove('active');
+  });
+
+  /**
+   * Xử lý chức năng ẩn hiện card
+   */
+  let card = select('#card');
+  on('click', '#cart', () => {
+    card.classList.toggle('active');
+  });
+  onscroll(window, () => {
+    card.classList.remove('active');
   });
 });

@@ -110,7 +110,6 @@ a:hover {
 }
 #order-header .shopping {
   position: relative;
-  text-align: right;
   margin-right: 3rem;
 }
 #order-header .cart {
@@ -130,8 +129,94 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+/* -------------------------------
+# Card
+---------------------------------- */
 #order-header .shopping .card {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  width: 30rem;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 1rem var(--main-color);
+  position: absolute;
+  right: -8rem;
+  top: 5rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  z-index: 100;
+}
+#order-header .shopping .card.active {
+  opacity: 1;
+  visibility: visible;
+}
+#order-header .shopping .card::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 8rem;
+  width: 2rem;
+  height: 2rem;
+  transform: translateY(50%) rotate(45deg);
+  background-color: #fff;
+  box-shadow: 0.1rem 0.1rem 1rem var(--main-color);
+  z-index: -10;
+}
+#order-header .shopping .card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--main-color);
+  z-index: 10;
+  background-color: #fff;
+}
+#order-header .shopping .card .card-header .card-title {
+  font-size: 2rem;
+}
+#order-header .shopping .card .card-header .card-remove {
+  background: none;
+  padding: 0.6rem 1rem;
+  border-radius: 3rem;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+}
+#order-header .shopping .card .listCard {
+  padding: 1.2rem 0.7rem 1rem;
+  list-style: none;
+  font-size: 1.6rem;
+  font-weight: 550;
+}
+#order-header .shopping .card .card-group-bottom {
+  padding: 1.5rem 1rem;
+}
+#order-header .shopping .card .card-group-bottom .card-ss2 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+#order-header .shopping .card .card-group-bottom .img-toco {
+  width: 2rem;
+}
+#order-header .shopping .card .card-group-bottom span {
+  font-size: 2rem;
+  font-weight: 550;
+}
+#order-header .shopping .card .card-group-bottom span:last-of-type {
+  color: var(--text-color);
+  font-weight: 600;
+}
+#order-header .shopping .card .card-group-bottom .button-card {
+  width: 100%;
+  background: var(--main-color);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 1rem;
 }
 
 @media screen and (max-width: 992px) {
@@ -174,71 +259,46 @@ a:hover {
   .login-button {
     padding: 0.7rem 2rem;
   }
+  #order-header .shopping .card {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 88vh;
+    width: 100vw;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+  #order-header .shopping .card::before {
+    display: none;
+  }
+  #order-header .shopping .card .card-header {
+    display: none;
+  }
+  #order-header .shopping .card .listCard {
+    display: none;
+  }
+  #order-header .shopping .card .card-group-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  #order-header .shopping .card .card-group-bottom .card-ss2 {
+    margin-bottom: 0;
+  }
+  #order-header .shopping .card .card-group-bottom .button-card {
+    width: auto;
+  }
 }
 
-/* ------------------------------------
-# Order cart
-------------------------------------- */
 .page-order {
   padding: 3rem 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* .page-order .order-cart {
-  width: 300px;
-  box-sizing: content-box;
-  display: inline-block;
-  height: fit-content;
-  background-color: #fff;
-  margin: 0 20px;
-  border-radius: 10px;
-}
-.page-order .order-cart .cart-header {
-  padding-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--main-color);
-  padding: 10px 15px;
-}
-.page-order .order-cart .cart-header h3 {
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.page-order .order-cart .cart-header button {
-  background: none;
-  border: 1px solid var(--main-color);
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 200;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.page-order .order-cart .cart-header button:hover {
-  background-color: var(--main-color);
-  color: #fff;
-}
-.page-order .order-cart .cart-button {
-  margin: 15px;
-  width: calc(100% - 30px);
-}
-
-.cart-group-part1 {
-  margin: 20px 15px 0;
-  display: flex;
-  align-items: center;
-}
-.cart-group-part1 img {
-  width: 20px;
-}
-.cart-group-part1 span {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 2px;
-} */
 
 /* ----------------------------------- 
 # order catagories
@@ -251,23 +311,29 @@ a:hover {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--main-color);
 }
-.page-order .order-catagories #menu-catagories {
-  display: none;
+.page-order .order-catagories .btn-menu {
   position: fixed;
-  bottom: 3rem;
+  bottom: 7rem;
   left: 1.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ee4d2d;
   color: white;
-  font-size: 2.5rem;
-  padding: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
+  font-size: 2.3rem;
+  padding: 1.2rem;
+  border: none;
+  display: none;
+  background-color: #ee4d2d;
+  border-radius: 999rem;
+  line-height: 0;
+  text-align: center;
   z-index: 100;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.page-order .order-catagories a {
+.page-order .order-catagories .btn-menu .fa-xmark {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.page-order .order-catagories .order-catagories-container a {
   padding: 8px 15px;
   margin-left: 30px;
   border: 1px solid var(--main-color);
@@ -281,6 +347,7 @@ a:hover {
   cursor: pointer;
   text-decoration: none;
   color: #000;
+  background-color: #fff;
   transition: 0.2s linear;
 }
 .page-order .order-catagories a:hover,
@@ -292,8 +359,51 @@ a:hover {
   white-space: nowrap;
 }
 @media screen and (max-width: 992px) {
-  .page-order .order-catagories #menu-catagories {
+  .page-order .order-catagories .btn-menu {
     display: block;
+    bottom: 5rem;
+    left: 1.6rem;
+  }
+  .page-order .order-catagories-container {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    bottom: 13rem;
+    left: 4rem;
+    width: 25rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 1rem var(--main-color);
+    background-color: #fff;
+    z-index: 100;
+    padding-bottom: 0;
+    transition: all 0.3s;
+  }
+  .page-order .order-catagories-container.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .page-order .order-catagories-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 1rem var(--main-color);
+    transform: translateY(50%) rotate(45deg);
+    background: #fff;
+    z-index: -10;
+  }
+  .page-order .order-catagories .order-catagories-container a {
+    border: none;
+    border-bottom: 1px solid var(--main-color);
+    border-radius: 0;
+    margin-left: 0;
+  }
+  .page-order .order-catagories .order-catagories-container a:last-of-type {
+    border-bottom: none;
   }
 }
 /* ------------------------------------
