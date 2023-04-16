@@ -30,6 +30,7 @@ $(document).ready(function () {
   };
 
   let selectHeader = select('#order-header');
+  let catagoriesContainer = select('.order-catagories-container');
   if (selectHeader) {
     const headerScrolled = () => {
       if (
@@ -37,8 +38,10 @@ $(document).ready(function () {
         selectHeader.offsetTop + selectHeader.offsetHeight - 10
       ) {
         selectHeader.classList.add('header-scrolled');
+        catagoriesContainer.classList.add('catagories-scrolled');
       } else {
         selectHeader.classList.remove('header-scrolled');
+        catagoriesContainer.classList.remove('catagories-scrolled');
       }
     };
     $(window).on('load', headerScrolled);
@@ -88,8 +91,6 @@ $(document).ready(function () {
     function (e) {
       if (select(this.hash)) {
         e.preventDefault();
-
-        let catagoriesContainer = select('.order-catagories-container');
         if (catagoriesContainer.classList.contains('active')) {
           catagoriesContainer.classList.remove('active');
         }
@@ -195,7 +196,6 @@ $(document).ready(function () {
    * Xử lý chức năng ẩn hiện menu danh mục
    */
   let btnMenu = select('.btn-menu-content');
-  let catagoriesContainer = select('.order-catagories-container');
   on('click', '.btn-menu', () => {
     btnMenu.classList.toggle('fa-bars');
     btnMenu.classList.toggle('fa-xmark');
@@ -295,14 +295,14 @@ $(document).ready(function () {
    * Set maxHeight cho product-customize
    */
   // get the height of the popup
-  const popupHeight = $('.popup-add-product').height();
+  const popupHeight = select('.popup').offsetHeight;
 
   // get the height of the product-infomation section
-  const productInfoHeight = $('.product-infomation').height();
+  const productInfoHeight = select('.product-infomation').offsetHeight;
 
   // calculate the remaining height
   const remainingHeight = popupHeight - productInfoHeight;
 
   // set the max-height of the product-customize section
-  $('.product-customize').css('max-height', remainingHeight + 'px');
+  $('.product-customize').css('height', remainingHeight + 'px');
 });

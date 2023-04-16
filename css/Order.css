@@ -69,6 +69,7 @@ a:hover {
   left: 0;
   right: 0;
   background-color: #fff;
+  box-shadow: 0 0.1rem 0.3rem gray;
   z-index: 1000;
   transition: 0.4s ease;
 }
@@ -128,6 +129,13 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#order-header .user-button {
+  background: none;
+  border: none;
+}
+#order-header #user-avatar {
+  width: 3rem;
 }
 /* -------------------------------
 # Card
@@ -306,10 +314,21 @@ a:hover {
 .page-order .order-catagories-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: center;
+  width: 90vw;
+  /* padding: 0 7rem; */
   padding-bottom: 20px;
   border-bottom: 1px solid var(--main-color);
+}
+.page-order .order-catagories-container.catagories-scrolled {
+  position: fixed;
+  top: 6.2rem;
+  padding-top: 1.5rem;
+  left: 0;
+  right: 0;
+  width: 99.5vw;
+  background-color: #fff;
+  z-index: 100;
 }
 .page-order .order-catagories .btn-menu {
   position: fixed;
@@ -335,7 +354,7 @@ a:hover {
 
 .page-order .order-catagories .order-catagories-container a {
   padding: 8px 15px;
-  margin-left: 30px;
+  margin-left: 5rem;
   border: 1px solid var(--main-color);
   border-radius: 15px;
   display: flex;
@@ -406,6 +425,12 @@ a:hover {
     border-bottom: none;
   }
 }
+@media screen and (max-width: 576px) {
+  .page-order .order-catagories .btn-menu {
+    bottom: 9rem;
+    left: 1.6rem;
+  }
+}
 /* ------------------------------------
 # Order product
 ------------------------------------- */
@@ -422,6 +447,7 @@ a:hover {
   column-gap: 2rem;
   row-gap: 2rem;
   align-items: stretch;
+  margin-bottom: 5rem;
 }
 .order-content .order-catagory {
   width: 100%;
@@ -434,8 +460,8 @@ a:hover {
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--text-color);
-  margin: 5rem 0 2rem 0;
   border-bottom: 1px solid var(--main-color);
+  margin-bottom: 2rem;
   cursor: pointer;
 }
 .order-content .order-catagory:first-child h2 {
@@ -663,6 +689,9 @@ a:hover {
   margin-left: 2rem;
   cursor: pointer;
 }
+/* .wrap-popup .popup .popup-content .ss2-container {
+  height: ;
+} */
 .wrap-popup .popup .popup-content .product-customize {
   overflow-y: scroll;
   padding: 1rem 1.5rem 3rem 2rem;
