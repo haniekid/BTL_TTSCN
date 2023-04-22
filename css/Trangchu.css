@@ -80,6 +80,7 @@ header {
 
 .home-overlay {
 }
+/* Slider start */
 .carousel-slider {
   width: 100%;
   position: relative;
@@ -99,7 +100,7 @@ header {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all 0.6s ease;
+  transition: all 0.4s ease;
 }
 .slide:nth-child(1) {
   transform: translateX(-100%);
@@ -132,94 +133,80 @@ header {
   z-index: 2;
   width: 100%;
   text-align: center;
+  /* Set vị trí của content trong slide */
+  top: 50%;
+  transform: translateY(-20%);
 }
-.silde-title {
-  font-size: 40px;
-  letter-spacing: 1px;
-  color: #d3b673;
-  margin-bottom: 20px;
-  font-family: Muli, sans-serif !important;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s 0.3s ease;
-}
-.slide:nth-child(1) .silde-title {
-  transform: translateY(-30px);
-  opacity: 0;
-}
-.slide:nth-child(2) .silde-title {
-  transform: translateY(0);
-  opacity: 1;
-  transition: all 0.5s 0.4s ease;
-}
-.slide-description {
-  letter-spacing: 2.7px;
-  font-size: 54px;
+.order-now{
+  display: flex;
+  height: 40px;
   color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  font-family: Muli-Variable, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 27px;
-  line-height: 64px;
-  opacity: 0;
-  transform: translateY(25px);
-  transition: all 0.4s 0.2s ease;
+  cursor: pointer;
+  max-width: 166px;
+  margin: auto;
+  /* Margin của cái nút đặt hàng */
+  margin-top: 90px;
+  transition: all 0.3s ease;
 }
-.slide:nth-child(1) .slide-description {
-  transform: translateY(-25px);
-  opacity: 0;
+.order-now:hover{
+  background-color: #d2a451;
+  border-color: #d2a451;
+  color: #131da6;
 }
-.slide:nth-child(2) .slide-description {
-  transform: translateY(0);
-  opacity: 1;
-  transition: all 0.6s 0.5s ease;
+.scroll-icon{
+  background-image: url(../assets/images/trangchu/ic_scoll.webp);
+  width: 18px;
+  height: 32px;
+  margin: 32px auto 8px;
+  animation: animation-scroll-icon 0.5s infinite alternate;
 }
-.slide-link {
-  display: inline-block;
-  padding: 5px 25px;
-  background: #d3b673;
-  color: #fff;
-  margin-top: 50px;
-  text-transform: uppercase;
-  font-weight: bold;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.4s 0.2s ease;
+@keyframes animation-scroll-icon {
+  form{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-16px);
+  }
 }
-.slide:nth-child(1) .slide-link {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-.slide:nth-child(2) .slide-link {
-  transform: translateY(0);
-  opacity: 1;
-  transition: all 0.7s 0.6s ease;
+.btn-scroll{
+  align-self: center;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Muli-Variable, sans-serif;
 }
 .carousel-button {
-  width: 15%;
   position: absolute;
   top: 0;
-  font-size: 35px;
+  font-size: 30px;
   height: 100%;
   max-height: 100vh;
-  padding: 0;
+  padding: 0 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 10;
-  color: #cdcdcd;
-  cursor: pointer;
-}
-.carousel-button:hover {
   color: #fff;
+  cursor: pointer;
+  margin: 5px;
 }
 .carousel-button-prev {
-  left: 0;
+  left: 10%;
 }
 .carousel-button-next {
-  right: 0;
+  right: 10%;
 }
+/* Slider end */
 /* home section ends */
 
 /* products section starts */
