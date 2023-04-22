@@ -122,13 +122,6 @@ $(document).ready(function () {
   });
 
   /**
-   * Chức năng ẩn hiện card khi click vào icon giỏ hàng
-   */
-  on('click', '#card', () => {
-    card.classList.toggle('active');
-  });
-
-  /**
    * Chức năng ẩn hiện product container
    */
   $('.order-container-header').click(function () {
@@ -176,20 +169,25 @@ $(document).ready(function () {
   /**
    * Hàm xử lý sự kiện mở popup
    */
+  let popup = select('.popup');
   let PopupImg = select('#pp-product-img');
   let PopupName = select('#pp-product-name');
   let PopupPrice = select('#pp-product-price');
   let PopupCost = select('#pp-product-regular-price');
 
-  function handleAddToCartClick() {
+  function handleProductClick() {
     // Phương thức closest trả về tra gân nhất nếu không có trả về null
     PopupImg.src = $(this).find('.product-thumb').attr('src');
     PopupName.innerHTML = $(this).find('.product-name').text();
     PopupPrice.innerHTML = $(this).find('.price-discount').text();
     PopupCost.innerHTML = $(this).find('.cost').text();
     wrapPopup.classList.add('active');
+    popup.id = this.id;
+
+    // Ẩn card
+    card.classList.remove('active');
   }
-  $('.product').click(handleAddToCartClick);
+  $('.product').click(handleProductClick);
 
   /**
    * Hàm xử lý sự kiện collapse customize-content
@@ -203,23 +201,28 @@ $(document).ready(function () {
    */
   // Lấy giá sản phẩm giảm giá
   var amount = 1;
-  var priceDiscount = parseFloat($('#pp-product-price').text());
+  var priceDiscount = parseFloat(select('#pp-product-price').innerHTML);
   var totalPrice = priceDiscount * amount;
 
-  $('.change-quantity-wrap').on('click', '.change-quantity', function () {
-    var $amount = $(this).siblings('.amount');
-    if ($(this).hasClass('decrease')) {
-      if (parseInt($amount.text()) > 1) {
-        $amount.text(parseInt($amount.text()) - 1);
-        amount--;
+  on(
+    'click',
+    '.change-quantity',
+    function () {
+      var $amount = $(this).siblings('.amount');
+      if ($(this).hasClass('decrease')) {
+        if (parseInt($amount.text()) > 1) {
+          $amount.text(parseInt($amount.text()) - 1);
+          amount--;
+        }
+      } else if ($(this).hasClass('increase')) {
+        $amount.text(parseInt($amount.text()) + 1);
+        amount++;
       }
-    } else if ($(this).hasClass('increase')) {
-      $amount.text(parseInt($amount.text()) + 1);
-      amount++;
-    }
-    totalPrice = priceDiscount * amount;
-    $('.btn-price-product').text(`+ ${totalPrice.toFixed(3)}đ`);
-  });
+      totalPrice = priceDiscount * amount;
+      $('.btn-price-product').text(`+ ${totalPrice.toFixed(3)}đ`);
+    },
+    true
+  );
 
   $("input[name='topping']").on('change', function () {
     var checkboxValue = $(this).siblings('label').attr('value');
@@ -312,65 +315,32 @@ $(document).ready(function () {
   let totalPriceCard = select('.card-ss2-four');
   let totalQuantityCard = select('.card-ss2-two');
   let cardItemTitle = select('.name');
-  let itemAddTitle = $('#pp-product-name');
-  let itemAddImg = $('#pp-product-img');
+  let itemAddTitle = select('#pp-product-name');
+  let itemAddImg = select('#pp-product-img');
 
-  let basket = JSON.parse(localStorage.getItem('data')) || [];
+  let basket = JSON.parse(localStorage.getItem('cart_data')) || [];
 
   const productAdd = {
+    id: '',
     img: '',
     title: '',
+    price: '',
+    quantity: '',
   };
-  let calculation = () => {
-    let cartIcon = document.getElementById('cartAmount');
-    cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
-  };
+  // let calculation = () => {
+  //   let cartIcon = document.getElementById('cartAmount');
+  //   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+  // };
 
-  calculation();
-
-  let generateCartItems = () => {
-    if (basket.length !== 0) {
-      return (listCard.innerHTML = basket
-        .map((x) => {
-          let { id, item } = x;
-          let search = shopItemsData.find((y) => y.id === id) || [];
-          return `
-        <div class="cart-item">
-          <img width="100" src=${search.img} alt="" />
-          <div class="details">
-            <div class="title-price-x">
-                <h4 class="title-price">
-                  <p>${search.name}</p>
-                  <p class="cart-item-price">$ ${search.price}</p>
-                </h4>
-                <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
-            </div>
-            <div class="buttons">
-                <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                <div id=${id} class="quantity">${item}</div>
-                <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
-            </div>
-            <h3>$ ${item * search.price}</h3>
-          </div>
-        </div>
-        `;
-        })
-        .join(''));
-    } else {
-      ShoppingCart.innerHTML = ``;
-      label.innerHTML = `
-      <h2>Cart is Empty</h2>
-      <a href="index.html">
-        <button class="HomeBtn">Back to home</button>
-      </a>
-      `;
-    }
-  };
-
-  generateCartItems();
+  // calculation();
   on('click', '.btn-price-product', function () {
+    productAdd.id = Date.now();
     productAdd.img = itemAddImg.attr('src');
     productAdd.title = itemAddTitle.text();
-    productAdd;
+    productAdd.quantity = amount;
+    productAdd.price = totalPrice / amount;
+    console.log(productAdd);
+    basket.push(productAdd);
+    localStorage.setItem('cart_data', JSON.stringify(basket));
   });
 });
