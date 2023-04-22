@@ -28,12 +28,13 @@ let order_container6 = document.querySelector(
 
 // ---------------------- Generate code start
 function init_order_hots_data() {
-  order_hots_data.map((product, key, originArray) => {
+  order_hots_data.map((product) => {
     if (product.discount === product.price) {
       product.price = '';
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}
@@ -59,12 +60,13 @@ function init_order_hots_data() {
 init_order_hots_data();
 
 function init_instant_data() {
-  instant_data.map((product, key) => {
+  instant_data.map((product) => {
     if (product.discount === product.price) {
       product.price = '';
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}
@@ -94,6 +96,7 @@ function init_order_fresh_fruit_data() {
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}
@@ -123,6 +126,7 @@ function init_order_macchiato_cream_data() {
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}
@@ -152,6 +156,7 @@ function init_order_milk_tea_data() {
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}
@@ -180,6 +185,7 @@ function init6() {
     }
     let newDiv = document.createElement('div');
     newDiv.className = 'product';
+    newDiv.id = product.id;
     newDiv.innerHTML = `
         <img
           src=${product.image}

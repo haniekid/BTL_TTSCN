@@ -38,10 +38,8 @@ $(document).ready(function () {
         selectHeader.offsetTop + selectHeader.offsetHeight - 10
       ) {
         selectHeader.classList.add('header-scrolled');
-        catagoriesContainer.classList.add('catagories-scrolled');
       } else {
         selectHeader.classList.remove('header-scrolled');
-        catagoriesContainer.classList.remove('catagories-scrolled');
       }
     };
     $(window).on('load', headerScrolled);
@@ -51,7 +49,7 @@ $(document).ready(function () {
   /**
    * Navbar links active state on scroll
    */
-  let navbarlinks = select('.order-catagories .scrollto', true);
+  let navbarlinks = select('.order-catagories-container .scrollto', true);
   const navbarlinksActive = () => {
     let position = window.scrollY + 200;
     navbarlinks.forEach((navbarlink) => {
@@ -60,7 +58,7 @@ $(document).ready(function () {
       if (!section) return;
       if (
         position >= section.offsetTop &&
-        position <= section.offsetTop + section.offsetHeight
+        position <= section.offsetTop + section.offsetHeight - 20
       ) {
         navbarlink.classList.add('active');
       } else {
@@ -123,61 +121,6 @@ $(document).ready(function () {
     inputSearch.classList.remove('active');
   });
 
-  /**
-   * Xử lý các chức năng với giỏ hàng
-   */
-  // let listCards = [];
-  // let listCard = select('.listCard');
-  // let total = select('.total');
-  // let quantity = select('.quantity');
-  // let cart = select('#cart');
-
-  // /**
-  //  * Chức năng thêm vào cart khi click vào nút add
-  //  */
-  // function addToCard(key, originArray) {
-  //   if (listCards[key] == null) {
-  //     // copy product form list to list card
-  //     listCards[key] = JSON.parse(JSON.stringify(originArray[key]));
-  //     listCards[key].quantity = 1;
-  //   }
-  //   reloadCard();
-  // }
-  // function reloadCard() {
-  //   listCard.innerHTML = '';
-  //   let count = 0;
-  //   let totalPrice = 0;
-  //   listCards.forEach((value, key) => {
-  //     totalPrice = totalPrice + value.price;
-  //     count = count + value.quantity;
-  //     if (value != null) {
-  //       let newDiv = document.createElement('li');
-  //       newDiv.innerHTML = `
-  //                 <div><img src="image/${value.image}"/></div>
-  //                 <div>${value.name}</div>
-  //                 <div>${value.price.toLocaleString()}</div>
-  //                 <div>
-  //                     <button onclick="changeQuantity(${key}, ${
-  //         value.quantity - 1
-  //       })">-</button>
-  //                     <div class="count">${value.quantity}</div>
-  //                     <button onclick="handleClick(e)">+</button>
-  //                 </div>`;
-  //       listCard.appendChild(newDiv);
-  //     }
-  //   });
-  //   total.innerText = totalPrice.toLocaleString();
-  //   quantity.innerText = count;
-  // }
-  // function changeQuantity(key, quantity) {
-  //   if (quantity == 0) {
-  //     delete listCards[key];
-  //   } else {
-  //     listCards[key].quantity = quantity;
-  //     listCards[key].price = quantity * products[key].price;
-  //   }
-  //   reloadCard();
-  // }
   /**
    * Chức năng ẩn hiện card khi click vào icon giỏ hàng
    */
@@ -304,5 +247,130 @@ $(document).ready(function () {
   const remainingHeight = popupHeight - productInfoHeight;
 
   // set the max-height of the product-customize section
-  $('.product-customize').css('height', remainingHeight + 'px');
+  select('.product-customize').style.maxHeight = remainingHeight + 'px';
+
+  /**
+   * Xử lý các chức năng với giỏ hàng
+   */
+  // let listCards = [];
+  // let listCard = select('.listCard');
+  // let total = select('.total');
+  // let quantity = select('.quantity');
+  // let cart = select('#cart');
+
+  // /**
+  //  * Chức năng thêm vào cart khi click vào nút add
+  //  */
+  // function addToCard(key, originArray) {
+  //   if (listCards[key] == null) {
+  //     // copy product form list to list card
+  //     listCards[key] = JSON.parse(JSON.stringify(originArray[key]));
+  //     listCards[key].quantity = 1;
+  //   }
+  //   reloadCard();
+  // }
+  // function reloadCard() {
+  //   listCard.innerHTML = '';
+  //   let count = 0;
+  //   let totalPrice = 0;
+  //   listCards.forEach((value, key) => {
+  //     totalPrice = totalPrice + value.price;
+  //     count = count + value.quantity;
+  //     if (value != null) {
+  //       let newDiv = document.createElement('li');
+  //       newDiv.innerHTML = `
+  //                 <div><img src="image/${value.image}"/></div>
+  //                 <div>${value.name}</div>
+  //                 <div>${value.price.toLocaleString()}</div>
+  //                 <div>
+  //                     <button onclick="changeQuantity(${key}, ${
+  //         value.quantity - 1
+  //       })">-</button>
+  //                     <div class="count">${value.quantity}</div>
+  //                     <button onclick="handleClick(e)">+</button>
+  //                 </div>`;
+  //       listCard.appendChild(newDiv);
+  //     }
+  //   });
+  //   total.innerText = totalPrice.toLocaleString();
+  //   quantity.innerText = count;
+  // }
+  // function changeQuantity(key, quantity) {
+  //   if (quantity == 0) {
+  //     delete listCards[key];
+  //   } else {
+  //     listCards[key].quantity = quantity;
+  //     listCards[key].price = quantity * products[key].price;
+  //   }
+  //   reloadCard();
+  // }
+
+  // Xử lý sự kiện thêm vào giỏ hàng
+  let quantity = select('#quantity');
+  let listCard = select('.listCard');
+  let cardSs2 = select('.card-ss2-two');
+  let totalPriceCard = select('.card-ss2-four');
+  let totalQuantityCard = select('.card-ss2-two');
+  let cardItemTitle = select('.name');
+  let itemAddTitle = $('#pp-product-name');
+  let itemAddImg = $('#pp-product-img');
+
+  let basket = JSON.parse(localStorage.getItem('data')) || [];
+
+  const productAdd = {
+    img: '',
+    title: '',
+  };
+  let calculation = () => {
+    let cartIcon = document.getElementById('cartAmount');
+    cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+  };
+
+  calculation();
+
+  let generateCartItems = () => {
+    if (basket.length !== 0) {
+      return (listCard.innerHTML = basket
+        .map((x) => {
+          let { id, item } = x;
+          let search = shopItemsData.find((y) => y.id === id) || [];
+          return `
+        <div class="cart-item">
+          <img width="100" src=${search.img} alt="" />
+          <div class="details">
+            <div class="title-price-x">
+                <h4 class="title-price">
+                  <p>${search.name}</p>
+                  <p class="cart-item-price">$ ${search.price}</p>
+                </h4>
+                <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
+            </div>
+            <div class="buttons">
+                <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+                <div id=${id} class="quantity">${item}</div>
+                <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+            </div>
+            <h3>$ ${item * search.price}</h3>
+          </div>
+        </div>
+        `;
+        })
+        .join(''));
+    } else {
+      ShoppingCart.innerHTML = ``;
+      label.innerHTML = `
+      <h2>Cart is Empty</h2>
+      <a href="index.html">
+        <button class="HomeBtn">Back to home</button>
+      </a>
+      `;
+    }
+  };
+
+  generateCartItems();
+  on('click', '.btn-price-product', function () {
+    productAdd.img = itemAddImg.attr('src');
+    productAdd.title = itemAddTitle.text();
+    productAdd;
+  });
 });

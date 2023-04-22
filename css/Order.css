@@ -61,16 +61,16 @@ a:hover {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: #fff;
-  transition: 0.4s ease;
-}
-#order-header.header-scrolled {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
+  transition: 0.4s ease;
+}
+#order-header.header-scrolled {
   background-color: #fff;
   box-shadow: 0 0.1rem 0.3rem gray;
-  z-index: 1000;
   transition: 0.4s ease;
 }
 #order-header .order-logo img {
@@ -302,33 +302,26 @@ a:hover {
 }
 
 .page-order {
-  padding: 3rem 10rem;
+  padding: 0rem 10rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 7rem;
 }
 
 /* ----------------------------------- 
 # order catagories
 ------------------------------------- */
 .page-order .order-catagories-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90vw;
-  /* padding: 0 7rem; */
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--main-color);
-}
-.page-order .order-catagories-container.catagories-scrolled {
+  width: 25rem;
   position: fixed;
-  top: 6.2rem;
-  padding-top: 1.5rem;
-  left: 0;
-  right: 0;
-  width: 99.5vw;
-  background-color: #fff;
-  z-index: 100;
+  top: 12rem;
+  left: 2rem;
+  /* padding: 0 7rem; */
+  background: #fff;
+  box-shadow: 0.1rem 0.1rem 0.3rem var(--main-color);
+  border-radius: 0.5rem;
+  z-index: 1000;
 }
 .page-order .order-catagories .btn-menu {
   position: fixed;
@@ -354,9 +347,7 @@ a:hover {
 
 .page-order .order-catagories .order-catagories-container a {
   padding: 8px 15px;
-  margin-left: 5rem;
-  border: 1px solid var(--main-color);
-  border-radius: 15px;
+  border: 0.1rem solid hsl(40, 35%, 96%);
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -367,15 +358,20 @@ a:hover {
   text-decoration: none;
   color: #000;
   background-color: #fff;
-  transition: 0.2s linear;
+  transition: all 0.05s ease-in;
 }
 .page-order .order-catagories a:hover,
 .page-order .order-catagories a.active {
-  background: var(--main-color);
-  color: #fff;
+  color: var(--text-color);
+  font-weight: 600;
 }
 .page-order .order-catagories a .order-catagories-title {
   white-space: nowrap;
+}
+@media screen and (max-width: 1200px) {
+  .page-order .order-catagories-container {
+    width: 22rem;
+  }
 }
 @media screen and (max-width: 992px) {
   .page-order .order-catagories .btn-menu {
@@ -439,11 +435,12 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 20rem;
 }
 
 .order-content .order-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
   align-items: stretch;
@@ -465,7 +462,7 @@ a:hover {
   cursor: pointer;
 }
 .order-content .order-catagory:first-child h2 {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .order-content .order-catagory .btn-collapse {
   font-size: 3rem;
@@ -529,14 +526,17 @@ a:hover {
     padding-right: 0;
   }
   .order-content {
-    width: calc(100vw - 4rem);
-    padding: 0 1.5rem;
+    margin-left: 25rem;
+    padding: 0 2.5rem 0 1.5rem;
   }
   .order-content .order-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 992px) {
+  .order-content {
+    margin-left: 0;
+  }
   .order-content .order-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -694,7 +694,7 @@ a:hover {
 } */
 .wrap-popup .popup .popup-content .product-customize {
   overflow-y: scroll;
-  padding: 1rem 1.5rem 3rem 2rem;
+  padding: 1rem 1.5rem 2rem;
 }
 .wrap-popup .popup .popup-content .product-customize::-webkit-scrollbar {
   width: 0.3rem;
