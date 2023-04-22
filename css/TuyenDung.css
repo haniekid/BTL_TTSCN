@@ -73,9 +73,9 @@ body{
 .nav-link-item{
     display: block;
     color: #fff;
-    font-family: Muli, sans-serif;
+    font-family: Muli-Variable, sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 8px;
     line-height: 24px;
     text-transform: uppercase;
@@ -251,7 +251,8 @@ body{
     margin-top: 50px;
     width: 100%;
     height: max-content;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../assets/images/TuyenDung/about-banner-main.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+    url("../assets/images/TuyenDung/about-banner-main.jpg");
     background-size: cover;
     background-position: center;
 }
