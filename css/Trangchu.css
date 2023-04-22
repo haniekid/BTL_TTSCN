@@ -17,7 +17,7 @@ body {
 }
 
 section {
-  margin: 1rem 12%;
+  padding: 1rem 12%;
   text-align: center !important;
 }
 /*  */
@@ -59,10 +59,43 @@ h1.title {
 /*  */
 
 /* header section starts */
-header {
+#header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 101;
+  display: flex;
+  width: 100vw;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+.header_logo {
+  width: 10rem;
+  /* height: 100%; */
+  /* width: 10%; */
+}
+.header_logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+nav {
+  width: 100%;
+  display: flex;
+  height: 3rem;
+}
+/* nav ul {
+  display: flex;
+} */
+nav ul li {
+  display: inline-block;
 }
 /* header section ends */
 
@@ -358,6 +391,7 @@ header {
 #franchise {
   border: 5px solid var(--yellow-color);
   display: flex;
+  margin: 1rem 12%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -366,7 +400,7 @@ header {
 }
 
 .franchise-info {
-  width: 40%;
+  max-width: 40%;
   margin: 2rem 11rem 2rem 7rem;
 }
 
@@ -376,14 +410,13 @@ header {
   line-height: 1.4rem;
 }
 
-.franchise-info {
-}
 /* franchise section ends */
 
 /* news section starts */
 #news {
   font-family: Barlow;
   text-align: start;
+  margin-bottom: 1.5rem;
 }
 .news-info {
   display: grid;
@@ -483,4 +516,138 @@ p.description {
 /* news section ends */
 
 /* footer section starts */
+#footer {
+  font-family: BalloExtra;
+  height: 33rem;
+  background-image: linear-gradient(
+      rgba(51, 51, 51, 0.86),
+      rgba(51, 51, 51, 0.86)
+    ),
+    url("./../assets/images/trangchu/footer_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 2rem;
+}
+#footer,
+.footer-left,
+.footer-right {
+  display: flex;
+  margin: 0;
+}
+
+.footer-left,
+.footer-right {
+  margin-top: 3rem;
+  margin: 0;
+}
+
+.footer-left {
+  padding-left: 12%;
+  align-items: center;
+}
+.footer-right {
+  margin-top: 3.5rem;
+  gap: 3rem;
+  padding-right: 12%;
+}
+
+#footer h3 {
+  font-family: BalooExtra;
+  text-align: start;
+  color: var(--yellow-color);
+}
+
+#footer p,
+#footer a {
+  font-family: Barlow;
+  color: #ffff;
+  text-align: start;
+}
+#footer a {
+  text-decoration: none;
+  display: block;
+  line-height: 1.8rem;
+}
+.footer-left {
+  width: 65%;
+}
+.footer-left .footer-logo {
+  width: 45%;
+  height: 57%;
+  margin-right: 2.3rem;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-right {
+  width: 35%;
+}
+#footer i {
+  color: var(--yellow-color);
+}
+
+#footer .card_1 {
+  width: 70%;
+}
+
+.card_1 {
+  width: 70%;
+  margin: 0;
+}
+
+.card_1 div {
+  display: flex;
+  align-items: center;
+}
+
+.card_1 div p,
+.card_1 p {
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+  line-height: 0.3rem;
+  display: block;
+  text-align: start;
+}
+
+.icons i {
+  font-size: 1.5rem;
+  margin-left: 1.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.4rem;
+  cursor: pointer;
+}
+
+#footer .images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#footer .image {
+  width: 8rem;
+  height: 2.5rem;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.2rem;
+}
+.image_3 {
+  height: 3rem !important;
+  width: 10rem;
+  margin-top: 0.5rem;
+}
+
 /* footer section ends */
+
+/* .contact-info {
+  display: flex;
+  justify-content: space-between;
+} */
