@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -252,71 +252,15 @@ $(document).ready(function () {
   // set the max-height of the product-customize section
   select('.product-customize').style.maxHeight = remainingHeight + 'px';
 
-  /**
-   * Xử lý các chức năng với giỏ hàng
-   */
-  // let listCards = [];
-  // let listCard = select('.listCard');
-  // let total = select('.total');
-  // let quantity = select('.quantity');
-  // let cart = select('#cart');
-
-  // /**
-  //  * Chức năng thêm vào cart khi click vào nút add
-  //  */
-  // function addToCard(key, originArray) {
-  //   if (listCards[key] == null) {
-  //     // copy product form list to list card
-  //     listCards[key] = JSON.parse(JSON.stringify(originArray[key]));
-  //     listCards[key].quantity = 1;
-  //   }
-  //   reloadCard();
-  // }
-  // function reloadCard() {
-  //   listCard.innerHTML = '';
-  //   let count = 0;
-  //   let totalPrice = 0;
-  //   listCards.forEach((value, key) => {
-  //     totalPrice = totalPrice + value.price;
-  //     count = count + value.quantity;
-  //     if (value != null) {
-  //       let newDiv = document.createElement('li');
-  //       newDiv.innerHTML = `
-  //                 <div><img src="image/${value.image}"/></div>
-  //                 <div>${value.name}</div>
-  //                 <div>${value.price.toLocaleString()}</div>
-  //                 <div>
-  //                     <button onclick="changeQuantity(${key}, ${
-  //         value.quantity - 1
-  //       })">-</button>
-  //                     <div class="count">${value.quantity}</div>
-  //                     <button onclick="handleClick(e)">+</button>
-  //                 </div>`;
-  //       listCard.appendChild(newDiv);
-  //     }
-  //   });
-  //   total.innerText = totalPrice.toLocaleString();
-  //   quantity.innerText = count;
-  // }
-  // function changeQuantity(key, quantity) {
-  //   if (quantity == 0) {
-  //     delete listCards[key];
-  //   } else {
-  //     listCards[key].quantity = quantity;
-  //     listCards[key].price = quantity * products[key].price;
-  //   }
-  //   reloadCard();
-  // }
-
   // Xử lý sự kiện thêm vào giỏ hàng
   let quantity = select('#quantity');
-  let listCard = select('.listCard');
-  let cardSs2 = select('.card-ss2-two');
+  let listCard = select('#listCard');
   let totalPriceCard = select('.card-ss2-four');
   let totalQuantityCard = select('.card-ss2-two');
   let cardItemTitle = select('.name');
   let itemAddTitle = select('#pp-product-name');
   let itemAddImg = select('#pp-product-img');
+  let itemAddPrice = totalPrice / amount;
 
   let basket = JSON.parse(localStorage.getItem('cart_data')) || [];
 
@@ -327,20 +271,86 @@ $(document).ready(function () {
     price: '',
     quantity: '',
   };
-  // let calculation = () => {
-  //   let cartIcon = document.getElementById('cartAmount');
-  //   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
-  // };
 
-  // calculation();
+  const generateCartItems = () => {
+    if (basket.length !== 0) {
+      return (listCard.innerHTML = basket
+        .map((item) => {
+          return `<div class="card-item" id="${item.id}">
+                    <div class="card-item-left">
+                      <img
+                        src=${item.img}
+                        alt=""
+                        class="item-img"
+                      />
+                      <div class="item-info">
+                        <div class="item-name">${item.title} (M)</div>
+                        <div class="item-customize">70% đường,100% đá,</div>
+                        <div class="item-total">
+                          <span class="item-price">${item.price}đ</span>
+                          <span> x </span>
+                          <span class="item-mount">${item.quantity}</span>
+                          <span> = </span>
+                          <span class="item-total-price">${(
+                            item.price * item.quantity
+                          ).toFixed(3)}đ</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-item-right">
+                      <div class="item-change-quantity item-decrease">-</div>
+                      <div class="item-amount">${item.quantity}</div>
+                      <div class="item-change-quantity item-increase">+</div>
+                    </div>
+                  </div>`;
+        })
+        .join(''));
+    } else {
+      listCard.innerHTML = 'Bạn không có sản phẩm nào';
+    }
+  };
+  window.addEventListener('load', generateCartItems);
+
+  const calculation = () => {
+    let totalQuantity = basket
+      .map((x) => x.quantity)
+      .reduce((x, y) => x + y, 0);
+    let totalPrice = basket
+      .map((x) => x.price * x.quantity)
+      .reduce((x, y) => x + y, 0);
+    quantity.innerHTML = totalQuantity;
+    totalQuantityCard.innerHTML = totalQuantity;
+    totalPriceCard.innerHTML = totalPrice.toFixed(3) + 'đ';
+  };
+  window.addEventListener('load', calculation);
+
+  // Xử lý chức năng thêm vào cart
   on('click', '.btn-price-product', function () {
     productAdd.id = Date.now();
-    productAdd.img = itemAddImg.attr('src');
-    productAdd.title = itemAddTitle.text();
+    productAdd.img = itemAddImg.src;
+    productAdd.title = itemAddTitle.innerHTML;
     productAdd.quantity = amount;
-    productAdd.price = totalPrice / amount;
+    productAdd.price = itemAddPrice.toFixed(3);
     console.log(productAdd);
     basket.push(productAdd);
     localStorage.setItem('cart_data', JSON.stringify(basket));
+    calculation();
+    generateCartItems();
   });
+
+  // Lặp qua danh sách các button và gán sự kiện "click"
+  // Lấy danh sách tất cả các phần tử .item-change-quantity
+  var buttons = document.querySelectorAll('.item-change-quantity');
+
+  // Thêm sự kiện "click" cho mỗi phần tử
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      // Lấy id của phần tử cha .card-item
+      var productId = event.target.closest('.card-item').id;
+      console.log('Clicked button for product:', productId);
+      // Xử lý các thay đổi số lượng sản phẩm tương ứng với nút được click
+    });
+  });
+
+  // on('click', '.item-increase', increment(this.parentNode.parentNode.id));
 });

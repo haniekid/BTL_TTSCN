@@ -1,6 +1,6 @@
 :root {
   --main-color: hsl(40, 55%, 66%);
-  --text-color: hsl(40, 95%, 35%);
+  --text-color: hsl(40, 95%, 25%);
 }
 
 /* ------------------------------------
@@ -225,7 +225,7 @@ a:hover {
   justify-content: center;
   gap: 1rem;
 }
-#order-header .shopping .card .listCard .card-item-right .change-quantity {
+#order-header .shopping .card .listCard .card-item-right .item-change-quantity {
   display: block;
   width: 3rem;
   height: 3rem;
@@ -235,6 +235,7 @@ a:hover {
   font-size: 2.4rem;
   border-radius: 50%;
   background: hsl(217, 83%, 75%);
+  cursor: pointer;
 }
 #order-header .shopping .card .card-group-bottom {
   padding: 1.5rem 1rem;
