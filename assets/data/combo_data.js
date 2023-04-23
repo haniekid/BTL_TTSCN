@@ -1,4 +1,4 @@
-const combo_data = {
+export const combo_data = {
   success: true,
   data: {
     product_name: 'Combo Tr\u00e0 s\u1eefa 14K',
