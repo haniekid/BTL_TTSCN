@@ -304,31 +304,27 @@ a:hover {
   # About system
 ------------------------------------- */
 #about-system .about-system-content {
-  background-color: hsl(39, 90%, 85%);
+  background-color: hsl(39, 50%, 60%);
   display: flex;
   align-items: stretch;
   justify-content: center;
-  flex-wrap: wrap;
+  max-width: 114rem;
+  margin-top: 7rem;
+  padding: 0 1.5rem;
+  gap: 3rem;
 }
 #about-system .about-system-content .col-3 {
-  padding: 0 1.5rem;
-}
-#about-system .about-system-content .col-3 .about-sys-img {
-  display: block;
-  background-color: #fff;
-  width: 20rem;
-  height: 20rem;
-  padding: 0.7rem;
-  border-radius: 9999rem;
-}
-#about-system .about-system-content .col-3 .about-sys-img img {
-  width: 100%;
-  border-radius: 9999rem;
-  object-fit: contain;
-}
-#about-system .about-system-content .col-3 p {
-  margin-bottom: 2rem;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
   transform: translateY(-7rem);
+}
+#about-system .about-system-content .col-3 img {
+  width: 100%;
+  background-color: #fff;
+  padding: 2rem;
 }
 #about-system .about-system-content .col-3 p.about-sys-title {
   text-align: center;
@@ -336,13 +332,15 @@ a:hover {
   font-size: 2.2rem;
 }
 #about-system .about-system-content .col-3 p.about-sys-spotlight {
-  font-weight: 900;
-  font-size: 2.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
   text-align: center;
 }
 #about-system .about-system-content .col-3 p.about-sys-desc {
   color: #fff;
-  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
   text-align: center;
   font-weight: 600;
   margin-bottom: 0;
@@ -354,13 +352,15 @@ a:hover {
   #about-system .about-system-content {
     width: 95vw;
   }
-  #about-system .about-system-content .col-3 img {
-    margin-bottom: 3rem;
-  }
 }
 @media screen and (max-width: 768px) {
+  #about-system .about-system-content {
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+  }
   #about-system .about-system-content .col-3 {
-    width: 70%;
+    width: 80%;
     text-align: center;
   }
   #about-system .about-system-content .col-3 img {
@@ -749,5 +749,123 @@ select:focus {
   .partners .content div {
     column-gap: 2rem;
     row-gap: 2rem;
+  }
+}
+
+/* ------------------------------------
+  # footer
+------------------------------------- */
+footer {
+  background: url(../assets/images/NhuongQuyen/ft_bg_img.png) no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center;
+  color: #fff;
+}
+footer .footer-wrap {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-main {
+  display: flex;
+  gap: 3rem;
+  border-bottom: 0.1rem solid #fff;
+  align-items: flex-start;
+}
+footer .footer-bottom {
+  display: block;
+}
+footer .footer-main .footer-logo {
+  width: 18rem;
+  object-fit: contain;
+}
+footer .footer-main .footer-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--main-color);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+footer .footer-main .footer-line {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+footer .footer-main .footer-line svg {
+  width: 1.1rem;
+  color: #fff;
+}
+footer .footer-main .social {
+  display: flex;
+  align-items: center;
+}
+footer .footer-main .social svg {
+  width: 2.4rem;
+  margin-right: 2rem;
+}
+footer .footer-main .dowload-app {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+footer .footer-main ul {
+  list-style: none;
+}
+footer .footer-main ul li {
+  margin-bottom: 1.2rem;
+}
+footer .footer-main ul li a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+footer .footer-main .dowload-app img {
+  width: 15rem;
+  object-fit: contain;
+  margin-right: 2rem;
+}
+footer .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 5rem;
+}
+footer .footer-bottom div {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+footer .footer-bottom .right {
+  margin-left: auto;
+}
+@media screen and (max-width: 992px) {
+  footer .footer-main .footer-logo {
+    width: 15rem;
+  }
+  footer .footer-main .footer-line {
+    font-size: 1.4rem;
+  }
+  footer .footer-main .footer-title {
+    font-size: 1.8rem;
+  }
+  footer .footer-main .dowload-app img {
+    width: 11rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  footer .footer-main {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 2rem;
   }
 }

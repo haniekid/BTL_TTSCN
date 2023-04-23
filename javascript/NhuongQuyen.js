@@ -108,4 +108,10 @@ $(document).ready(function () {
       }
     }
   });
+
+  /**
+   * Set width cho footer-bottom
+   */
+  select('.footer-bottom').style.width =
+    select('.footer-main').innerWidth + 'px';
 });
