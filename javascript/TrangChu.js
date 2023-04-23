@@ -1,22 +1,12 @@
-/**
- * slide show
- */
+// slider
 let isToggle = false;
 function update() {
   window.requestAnimationFrame(update);
   let carousel_inner = document.querySelector(".carousel-inner");
   let height_slide = document.querySelectorAll(".slide")[1].offsetHeight;
   carousel_inner.style.height = height_slide + "px";
-  /**
-   * Đoạn comment dưới chỉ để thay đổi mài sắc của header
-   */
-  // let nav = document.getElementById("header");
-  // if (window.scrollY > 100 || isToggle) {
-  //   nav.style.backgroundColor = "#212529";
-  // } else {
-  //   nav.style.backgroundColor = "transparent";
-  // }
 }
+
 update();
 // Slide tiếp theo
 function slideNext() {
@@ -44,3 +34,12 @@ document.getElementById("btn-prev").addEventListener("click", () => {
   clearInterval(autoShow);
   autoShow = setInterval(slideNext, 3500);
 });
+
+// header
+window.onscroll = () => {
+  if (window.scrollY > 0) {
+    document.querySelector("#nav").classList.add("fixed");
+  } else {
+    document.querySelector("#nav").classList.remove("fixed");
+  }
+};

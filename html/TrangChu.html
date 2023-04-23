@@ -12,48 +12,55 @@
     />
     <title>Trang chủ</title>
 
-    <!-- box-shadow: 3.5px 6px 18px 0 rgb(0 0 0 / 10%); -->
     <!-- styles -->
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/Trangchu.css" />
     <!-- font awesome -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-    /> -->
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
+    <a href="" class="delivery">
+      <img src="../assets/images/trangchu/delivery.png" alt="" />
+    </a>
     <!-- header section starts -->
-    <!-- <section id="header">
-      <nav class="main-menu">
-        <div class="header_logo">
-          <img src="../assets//images//Trangchu/logo.png" alt="" />
-        </div>
-        <ul>
+    <div id="header">
+      <section id="nav">
+        <a id="header_logo">
+          <img src="../assets//images/Trangchu/logo.png" alt="" />
+        </a>
+        <ul class="main-menu">
           <li class="center"><a href="">Trang chủ</a></li>
           <li>
-            <a href="">Giới thiệu</a>
-            <ul>
-              <li><a href="">Lịch sử và sứ mệnh</a></li>
-              <li><a href="">Thành tựu đạt được</a></li>
+            <a href=""
+              >Giới thiệu <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="sub-menu">
+              <li>
+                <a href="../html//LichSuVaSuMenh.html">Lịch sử và sứ mệnh</a>
+              </li>
+              <li>
+                <a href="../html/ThanhTuuDatDuoc.html">Thành tựu đạt được</a>
+              </li>
             </ul>
           </li>
           <li>
-            <a href="">Sản phẩm</a>
-            <ul>
+            <a href=""
+              >Sản phẩm <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="sub-menu">
               <li><a href="">TOCOTOCO KEM TRÀ SỮA</a></li>
               <li><a href="">TOCOTOCO KEM CAFE</a></li>
               <li><a href="">INSTANT MILKTEA</a></li>
             </ul>
           </li>
           <li>
-            <a href="">Tin tức</a>
-            <ul>
+            <a href=""
+              >Tin tức <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="sub-menu">
               <li><a href="">Tin tức khuyến mãi</a></li>
               <li><a href="">Câu chuyện thương hiệu</a></li>
               <li><a href="">Sự kiện</a></li>
@@ -63,23 +70,14 @@
           <li class="center"><a href="">Tuyển dụng</a></li>
           <li class="center"><a href="">Nhượng quyền</a></li>
         </ul>
-      </nav>
-      <div class="btn-search"></div>
-    </section> -->
+        <div class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </section>
+    </div>
     <!-- header section ends -->
 
     <!-- home section starts -->
-    <!-- <section id="home">
-      <i class="fa-solid fa-chevron-left"></i>
-      <img src="../assets//images//Trangchu/home.jpg" alt="" />
-      <i class="fa-solid fa-chevron-right"></i>
-      <div class="home-oder">
-        <h1>ĐẶT HÀNG NGAY</h1>
-        <i class="fa-light fa-computer-mouse-scrollwheel"></i>
-        <p>Cuộn xuống</p>
-      </div>
-      <div class="home-overlay"></div>
-    </section> -->
     <!-- Slider start -->
     <div class="carousel-slider">
       <div class="carousel-inner" id="carousel-inner">
@@ -149,7 +147,9 @@
       <div class="cardList">
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_1.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_1.jpg" alt="" />
+          </div>
           <div class="cardItem-discount">24%</div>
 
           <div class="cardItem-info">
@@ -161,7 +161,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_2.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_2.png" alt="" />
+          </div>
           <div class="cardItem-discount">11%</div>
 
           <div class="cardItem-info">
@@ -173,7 +175,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_3.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_3.png" alt="" />
+          </div>
           <div class="cardItem-discount">46%</div>
 
           <div class="cardItem-info">
@@ -185,7 +189,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_4.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_4.png" alt="" />
+          </div>
           <div class="cardItem-discount">48%</div>
 
           <div class="cardItem-info">
@@ -197,7 +203,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_5.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_5.jpg" alt="" />
+          </div>
           <div class="cardItem-discount">34%</div>
 
           <div class="cardItem-info">
@@ -209,7 +217,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_6.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_6.png" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea - strawberry...</h3>
@@ -220,7 +230,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_7.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_7.png" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea - original - se...</h3>
@@ -231,12 +243,14 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_8.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_8.jpg" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea strawberry</h3>
             <p>26,000đ</p>
-            <div class="btn-order">ĐẶT HÀNG</div>
+            <button class="btn-order">ĐẶT HÀNG</button>
           </div>
         </div>
       </div>
@@ -319,7 +333,9 @@
           </div>
           <div class="news-left-bottom">
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_2.jpg" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_2.jpg" alt="" />
+              </div>
               <h3 class="h3-news">
                 ToCoToCo “cháy” cùng hàng trăm học sinh Amsterdam và Chuyên
                 Ngoại Ngữ trong chương trình Camp Aletheia
@@ -327,21 +343,27 @@
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 Cùng ToCoToCo nhân đôi sự ngọt ngào mùa lễ hội
               </h3>
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 Tâm huyết nâng tầm giá trị nông sản Việt của ToCoToCo
               </h3>
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 VỊ GIÒN TAN - GIÁNG SINH RỘN RÀNG CÙNG CHOCO NGŨ CỐC KEM CAFÉ VÀ
                 HỒNG TRÀ NGŨ CỐC KEM CAFÉ
@@ -351,7 +373,7 @@
         </div>
         <div class="news-right">
           <div class="news-right-top">
-            <div class="news-right-top-img">
+            <div class="news-right-top-img image-video">
               <img src="../assets/images/Trangchu/video_1.png" alt="" />
               <i class="fa-regular fa-circle-play"></i>
             </div>
@@ -363,7 +385,7 @@
 
           <div class="news-right-bottom">
             <div class="news">
-              <div class="news-image">
+              <div class="news-image image-video">
                 <img src="../assets/images/Trangchu/video_2.jpg" alt="" />
                 <i class="fa-regular fa-circle-play"></i>
               </div>
@@ -373,7 +395,7 @@
             </div>
 
             <div class="news">
-              <div class="news-image">
+              <div class="news-image image-video">
                 <img src="../assets/images/Trangchu/video_3.jpg" alt="" />
                 <i class="fa-regular fa-circle-play"></i>
               </div>
