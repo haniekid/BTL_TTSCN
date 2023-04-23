@@ -52,14 +52,22 @@ function Regist() {
     var account = {
       phone: phone.value,
       pass: pass.value,
+      logined: false,
     };
     var Account_properties =
       JSON.parse(localStorage.getItem('account_register')) || [];
-    Account_properties.push(account);
-    localStorage.setItem(
-      'account_register',
-      JSON.stringify(Account_properties)
-    );
-    window.location.href = 'login.html';
+    let search = Account_properties.find((item) => {
+      return account.phone == item.phone;
+    });
+    if (!search) {
+      Account_properties.push(account);
+      localStorage.setItem(
+        'account_register',
+        JSON.stringify(Account_properties)
+      );
+      window.location.href = 'login.html';
+    } else {
+      alert('Tài khoản đã tồn tại');
+    }
   }
 }

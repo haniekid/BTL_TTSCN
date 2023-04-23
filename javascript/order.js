@@ -138,6 +138,25 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /**
+   * Xử lý user
+   */
+  const reloadUser = () => {
+    let userLogin = JSON.parse(sessionStorage.getItem('account_login')) || [];
+    console.log(userLogin);
+    let user = document.getElementById('user');
+    if (userLogin.length == 0) {
+      user.innerHTML = `<a href="login.html" class="loggin-btn">Login</a>`;
+    } else {
+      user.innerHTML = `
+        <a href="login.html" class="user-btn">
+          <img src="../assets/images/Order/logo_icon.png" id="user-avatar" alt=""/>
+        </a>
+        `;
+    }
+  };
+  window.addEventListener('load', reloadUser);
+
+  /**
    * Chức năng ẩn hiện product container
    */
   $('.order-container-header').click(function () {
