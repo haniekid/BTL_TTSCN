@@ -869,3 +869,62 @@ footer .footer-bottom .right {
     column-gap: 2rem;
   }
 }
+
+/* ------------------------------------
+  # button delevery
+------------------------------------- */
+.btn-delivery img {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 3rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  animation: ring 1.5s ease infinite;
+  z-index: 1000;
+}
+@keyframes ring {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 4rem;
+  bottom: 10rem;
+  z-index: 996;
+  background: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5rem;
+  vertical-align: center;
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
+  line-height: 4rem;
+  transition: all 0.2s;
+}
+
+.back-to-top:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
