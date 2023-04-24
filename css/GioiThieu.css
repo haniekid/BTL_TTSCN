@@ -11,7 +11,7 @@ body{
 ::-webkit-scrollbar-thumb {
     background: #888; 
 }
-section{
+.page-title-section{
     padding: 10px;
 }
 p{
