@@ -4,69 +4,132 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/images/CuaHang/favicon-32x32-1.png"
+      type="image/x-icon"
+    />
     <title>Trang chủ</title>
 
     <!-- styles -->
+    <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/Trangchu.css" />
     <!-- font awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
+    <a href="Order.html" class="delivery">
+      <img src="../assets/images/trangchu/delivery.png" alt="" />
+    </a>
     <!-- header section starts -->
-    <!-- <header>
-      <div class="header_logo">
-        <img src="../assets//images//Trangchu/logo.png" alt="" />
-      </div>
-      <nav class="main-menu">
-        <ul class="sub-menu">
-          <li><a href="">Trang chủ</a></li>
+    <div id="header">
+      <section id="nav">
+        <a id="header_logo">
+          <img src="../assets/images/Trangchu/logo.png" alt="" />
+        </a>
+        <ul class="main-menu">
+          <li class="center"><a href="TrangChu.html">Trang chủ</a></li>
           <li>
-            <a href="">Giới thiệu</a>
+            <a href=""
+              >Giới thiệu <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
             <ul class="sub-menu">
-              <li><a href="">Lịch sử và sứ mệnh</a></li>
-              <li><a href="">Thành tựu đạt được</a></li>
+              <li>
+                <a href="LichSuVaSuMenh.html">Lịch sử và sứ mệnh</a>
+              </li>
+              <li>
+                <a href="ThanhTuuDatDuoc.html">Thành tựu đạt được</a>
+              </li>
             </ul>
           </li>
           <li>
-            <a href="">Sản phẩm</a>
+            <a href=""
+              >Sản phẩm <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
             <ul class="sub-menu">
-              <li><a href="">TOCOTOCO KEM TRÀ SỮA</a></li>
-              <li><a href="">TOCOTOCO KEM CAFE</a></li>
+              <li><a href="Order.html">TOCOTOCO KEM TRÀ SỮA</a></li>
+              <li><a href="Order.html">TOCOTOCO KEM CAFE</a></li>
               <li><a href="">INSTANT MILKTEA</a></li>
             </ul>
           </li>
           <li>
-            <a href="">Tin tức</a>
+            <a href="TinTuc.html"
+              >Tin tức <i class="fa-sharp fa-solid fa-chevron-down"></i
+            ></a>
             <ul class="sub-menu">
-              <li><a href="">Tin tức khuyến mãi</a></li>
-              <li><a href="">Câu chuyện thương hiệu</a></li>
-              <li><a href="">Sự kiện</a></li>
+              <li><a href="TinTuc_TTKM.html">Tin tức khuyến mãi</a></li>
+              <li><a href="TinTuc_CCTH.html">Câu chuyện thương hiệu</a></li>
+              <li><a href="TinTuc_SK.html">Sự kiện</a></li>
             </ul>
           </li>
-          <li><a href="">Cửa hàng</a></li>
-          <li><a href="">Tuyển dụng</a></li>
-          <li><a href="">Nhượng quyền</a></li>
+          <li class="center"><a href="CuaHang.html">Cửa hàng</a></li>
+          <li class="center"><a href="TuyenDung.html">Tuyển dụng</a></li>
+          <li class="center"><a href="NhuongQuyen.html">Nhượng quyền</a></li>
         </ul>
-      </nav>
-      <div class="btn-search"></div>
-    </header> -->
+        <div class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </section>
+    </div>
     <!-- header section ends -->
 
     <!-- home section starts -->
-    <!-- <section id="home">
-      <i class="fa-solid fa-chevron-left"></i>
-      <img src="../assets//images//Trangchu/home.jpg" alt="" />
-      <i class="fa-solid fa-chevron-right"></i>
-      <div class="home-oder">
-        <h1>ĐẶT HÀNG NGAY</h1>
-        <i class="fa-light fa-computer-mouse-scrollwheel"></i>
-        <p>Cuộn xuống</p>
+    <!-- Slider start -->
+    <div class="carousel-slider">
+      <div class="carousel-inner" id="carousel-inner">
+        <div class="slide">
+          <div class="bg-slide"></div>
+          <img
+            src="../assets/images/trangchu/home_3.jpg"
+            alt=""
+            class="slide-image"
+          />
+          <div class="slide-content">
+            <!-- Mấy cái nut đặt hàng này dẫn đến trang Order -->
+            <a href="Order.html" class="order-now">Đặt hàng ngay</a>
+            <div class="scroll-icon"></div>
+            <div class="btn-scroll">Cuộn xuống</div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="bg-slide"></div>
+          <img
+            src="../assets/images/trangchu/home.jpg"
+            alt=""
+            class="slide-image"
+          />
+          <div class="slide-content">
+            <a href="Order.html" class="order-now">Đặt hàng ngay</a>
+            <div class="scroll-icon"></div>
+            <div class="btn-scroll">Cuộn xuống</div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="bg-slide"></div>
+          <img
+            src="../assets/images/trangchu/home_2.jpg"
+            alt=""
+            class="slide-image"
+          />
+          <div class="slide-content">
+            <a href="Order.html" class="order-now">Đặt hàng ngay</a>
+            <div class="scroll-icon"></div>
+            <div class="btn-scroll">Cuộn xuống</div>
+          </div>
+        </div>
       </div>
-      <div class="home-overlay"></div>
-    </section> -->
+      <div class="carousel-button carousel-button-prev" id="btn-prev">
+        <i class="fa-sharp fa-solid fa-chevron-left"></i>
+      </div>
+      <div class="carousel-button carousel-button-next" id="btn-next">
+        <i class="fa-sharp fa-solid fa-chevron-right"></i>
+      </div>
+    </div>
+    <!-- Slider end -->
     <!-- home section ends -->
 
     <!-- products section starts -->
@@ -84,7 +147,9 @@
       <div class="cardList">
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_1.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_1.jpg" alt="" />
+          </div>
           <div class="cardItem-discount">24%</div>
 
           <div class="cardItem-info">
@@ -96,7 +161,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_2.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_2.png" alt="" />
+          </div>
           <div class="cardItem-discount">11%</div>
 
           <div class="cardItem-info">
@@ -108,19 +175,23 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_3.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_3.png" alt="" />
+          </div>
           <div class="cardItem-discount">46%</div>
 
           <div class="cardItem-info">
             <h3>trà đào dâu tây kem phô mai</h3>
             <p>25,000đ<span>46,000đ</span></p>
-            <div class="btn-order">ĐẶT HÀNG</div>
+            <button class="btn-order">ĐẶT HÀNG</button>
           </div>
         </div>
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_4.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_4.png" alt="" />
+          </div>
           <div class="cardItem-discount">48%</div>
 
           <div class="cardItem-info">
@@ -132,7 +203,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_5.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_5.jpg" alt="" />
+          </div>
           <div class="cardItem-discount">34%</div>
 
           <div class="cardItem-info">
@@ -144,7 +217,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_6.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_6.png" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea - strawberry...</h3>
@@ -155,7 +230,9 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_7.png" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_7.png" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea - original - se...</h3>
@@ -166,12 +243,14 @@
 
         <div class="cardItem">
           <div class="cardItem-new">new</div>
-          <img src="../assets//images/Trangchu/card_8.jpg" alt="" />
+          <div class="cardItem-img">
+            <img src="../assets//images/Trangchu/card_8.jpg" alt="" />
+          </div>
 
           <div class="cardItem-info">
             <h3>instant milk tea strawberry</h3>
             <p>26,000đ</p>
-            <div class="btn-order">ĐẶT HÀNG</div>
+            <button class="btn-order">ĐẶT HÀNG</button>
           </div>
         </div>
       </div>
@@ -204,7 +283,7 @@
     <!-- story section ends -->
 
     <!-- franchise section starts -->
-    <section id="franchise">
+    <div id="franchise">
       <div class="franchise-info">
         <h3 class="title">ToCoToCo Franchise</h3>
         <h1 class="title">NHƯỢNG QUYỀN</h1>
@@ -224,7 +303,7 @@
       <div class="franchise-image">
         <img src="../assets/images/Trangchu/nhuongquyen.png" alt="" />
       </div>
-    </section>
+    </div>
     <!-- franchise section ends -->
 
     <!-- news section starts -->
@@ -254,7 +333,9 @@
           </div>
           <div class="news-left-bottom">
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_2.jpg" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_2.jpg" alt="" />
+              </div>
               <h3 class="h3-news">
                 ToCoToCo “cháy” cùng hàng trăm học sinh Amsterdam và Chuyên
                 Ngoại Ngữ trong chương trình Camp Aletheia
@@ -262,21 +343,27 @@
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 Cùng ToCoToCo nhân đôi sự ngọt ngào mùa lễ hội
               </h3>
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 Tâm huyết nâng tầm giá trị nông sản Việt của ToCoToCo
               </h3>
             </div>
 
             <div class="news-card">
-              <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              <div class="news-img">
+                <img src="../assets/images/Trangchu/tintuc_3.png" alt="" />
+              </div>
               <h3 class="h3-news">
                 VỊ GIÒN TAN - GIÁNG SINH RỘN RÀNG CÙNG CHOCO NGŨ CỐC KEM CAFÉ VÀ
                 HỒNG TRÀ NGŨ CỐC KEM CAFÉ
@@ -286,7 +373,7 @@
         </div>
         <div class="news-right">
           <div class="news-right-top">
-            <div class="news-right-top-img">
+            <div class="news-right-top-img image-video">
               <img src="../assets/images/Trangchu/video_1.png" alt="" />
               <i class="fa-regular fa-circle-play"></i>
             </div>
@@ -298,7 +385,7 @@
 
           <div class="news-right-bottom">
             <div class="news">
-              <div class="news-image">
+              <div class="news-image image-video">
                 <img src="../assets/images/Trangchu/video_2.jpg" alt="" />
                 <i class="fa-regular fa-circle-play"></i>
               </div>
@@ -308,7 +395,7 @@
             </div>
 
             <div class="news">
-              <div class="news-image">
+              <div class="news-image image-video">
                 <img src="../assets/images/Trangchu/video_3.jpg" alt="" />
                 <i class="fa-regular fa-circle-play"></i>
               </div>
@@ -324,7 +411,90 @@
     <!-- news section ends -->
 
     <!-- footer section starts -->
-    <section id="footer"></section>
+    <div id="footer">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <img src="../assets/images/trangchu/footer_logo.png" alt="" />
+        </div>
+        <div class="card_1">
+          <h3>CÔNG TY CP TM&DV TACO VIỆT NAM</h3>
+          <div>
+            <i class="fa-sharp fa-solid fa-location-pin"></i>
+            <p>
+              Tầng 2 tòa nhà T10, Times City Vĩnh Tuy, Hai Bà Trưng, Hà Nội.
+            </p>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-phone-flip"></i>
+            <p>1900.63.69.36</p>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <p>info@tocotocotea.com</p>
+          </div>
+
+          <p>Số ĐKKD: 0106341306. Ngày cấp: 16/03/2017.</p>
+          <p>Nơi cấp: Sở kế hoạch và Đầu tư Thành phố Hà Nội.</p>
+          <div class="icons">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-google-plus"></i>
+          </div>
+
+          <div class="images">
+            <div class="image">
+              <img
+                src="../assets/images/trangchu/footer_googleplay.png"
+                alt=""
+              />
+            </div>
+            <div class="image">
+              <img src="../assets/images/trangchu/footer_appstore.png" alt="" />
+            </div>
+          </div>
+
+          <div class="image_3 image">
+            <img src="../assets/images/trangchu/footer_thongbao.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="card_2">
+          <h3>VỀ CHÚNG TÔI</h3>
+          <a href="#">Giới thiệu về TocoToco</a>
+          <a href="NhuongQuyen.html">Nhượng quyền</a>
+          <a href="TinTuc_TTKM.html">Tin tức khuyến mại</a>
+          <a href="CuaHang.html">Cửa hàng</a>
+          <a href="#">Quy định chung</a>
+          <a href="#">TT liên hệ &#038; ĐKKD</a>
+        </div>
+        <div class="card_3">
+          <h3>CHÍNH SÁCH</h3>
+          <a href="#">Chính sách thành viên</a>
+          <a href="#">Hình thức thanh toán</a>
+          <a href="#">Vận chuyển giao nhận</a>
+          <a href="#">Đổi trả và hoàn tiền</a>
+          <a href="#">Bảo vệ thông tin cá nhân</a>
+          <a href="#">Bảo trì, bảo hành</a>
+        </div>
+      </div>
+    </div>
     <!-- footer section ends -->
+    <!-- <section class="contact">
+      <hr />
+      <div class="contact-info">
+        <h3>
+          ToCoToCo - Thương hiệu trà sữa tiên phong sử dụng nguồn nông sản Việt
+          Nam
+        </h3>
+        <p>Copyrights © 2019 by ToCoToCoTea. All rights reserved.</p>
+      </div>
+    </section> -->
+
+    <script src="../javascript/TrangChu.js"></script>
   </body>
 </html>

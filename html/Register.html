@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/images/NhuongQuyen/logo_icon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="wrap-popup-login-content">
+      <div class="popup-login-content register-content">
+        <img class="logo-toco" src="../assets/images/Login/logo.png" />
+        <input
+          type="text"
+          inputtype="phone"
+          name="phone"
+          placeholder="Nhập số điện thoại của bạn"
+          id="phone"
+        />
+        <div class="input-err" id="phone-err"></div>
+        <input
+          type="password"
+          inputtype="password"
+          name="password"
+          placeholder="Nhập mật khẩu của bạn"
+          id="password"
+        />
+        <div class="input-err" id="pass-err"></div>
+        <input
+          type="password"
+          inputtype="password"
+          name="password-retype"
+          placeholder="Nhập lại mật khẩu của bạn"
+          id="password-retype"
+        />
+        <div class="input-err err-nomatch"></div>
+        <div class="btn-yellow btn-register" onclick="Regist()">Đăng kí</div>
+        <div class="sugget-text">
+          <div class="text">Bạn đã có tài khoản?</div>
+          <a href="login.html" class="link btn-login">Đăng nhập</a>
+        </div>
+        <div class="sugget-text">
+          <a href="Order.html" class="back-home">Quay lại màn hình chính</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/Register.js"></script>
+  </body>
+</html>

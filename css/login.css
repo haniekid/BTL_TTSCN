@@ -1,0 +1,168 @@
+:root {
+  --border-color: hsl(40, 55%, 76%);
+  --main-color: hsl(40, 55%, 66%);
+  --text-color: hsl(40, 95%, 35%);
+}
+
+/* ------------------------------------
+    # General
+  ------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  width: 5px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+html::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/images/Login/north_background_login_desktop.png')
+    no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+}
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+.wrap-popup-login-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+.popup-login-content {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+  padding: 40px 120px;
+  background-image: url('../assets/images/Login/register_banner_mobile.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom center;
+}
+.login-description {
+  display: none;
+  text-align: center;
+  margin: 16px 0;
+}
+.logo-toco {
+  width: 200px;
+  object-fit: contain;
+  margin-bottom: 40px;
+}
+.login-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+input {
+  border: none;
+  outline: none;
+  padding: 10px 15px 10px 10px;
+  border-bottom: 1px solid var(--main-color);
+  width: 100%;
+  margin-bottom: 10px;
+}
+.forgot-password {
+  font-family: 'Montserrat', sans-serif;
+  text-align: right;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-yellow {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 7px 15px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px 0;
+}
+.sugget-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sugget-text .text {
+  font-size: 13px;
+  font-weight: 500;
+}
+.sugget-text .link {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-color);
+  margin-top: 0;
+}
+.input-err {
+  color: #f42525;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+.sugget-text a {
+  font-weight: 600;
+  text-align: center;
+  color: blue;
+  margin-top: 30px;
+}
+@media screen and (max-width: 576px) {
+  .popup-login-content {
+    width: 95vw;
+    height: 90vh;
+    padding: 20px 60px;
+  }
+  .logo-toco {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  .sugget-text a {
+    margin-top: 10px;
+  }
+}
