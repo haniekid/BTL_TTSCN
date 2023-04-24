@@ -128,9 +128,10 @@ h1.title {
 }
 
 #header_logo {
-  display: block;
+  display: flex;
   width: 200px;
   height: auto;
+  align-items: center;
 }
 
 #header_logo img {
