@@ -3,9 +3,11 @@ body{
     padding: 0;
 }
 body *{
-    font-family: Barlow;
     text-decoration: none;
     box-sizing: border-box;
+}
+.category{
+    height: auto;
 }
 .category-content{
     padding: 50px 0;
@@ -71,7 +73,7 @@ ul.menu li a{
 .category-main{
     width: 70%;
     padding-left: 30px;
-    height: 200px;
+    height: auto;
 }
 .category-main-title{
     color: #282834;
