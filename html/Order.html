@@ -19,9 +19,10 @@
       referrerpolicy="no-referrer"
     />
     <script
-      src="https://code.jquery.com/jquery-3.6.4.js"
-      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script type="module" src="../javascript/orderGenerate.js"></script>
     <link rel="stylesheet" href="../css/Order.css" />
@@ -32,14 +33,61 @@
       <a href="order.html" class="order-logo">
         <img src="../assets/images/Order/logo.png" alt="Trang chu" />
       </a>
-      <form action="" class="order-search">
-        <ion-icon name="search-outline" id="btn-search"></ion-icon>
-        <input
-          type="text"
-          class="input-search"
-          placeholder="Tìm kiếm sản phẩm..."
-        />
-      </form>
+      <div class="search-box">
+        <form action="" class="order-search">
+          <ion-icon name="search-outline" id="btn-search"></ion-icon>
+          <input
+            type="text"
+            class="input-search"
+            id="input-search"
+            placeholder="Tìm kiếm sản phẩm..."
+          />
+        </form>
+        <div class="search-result" hidden>
+          <div class="search-result-item">
+            <img
+              src="../assets/images/Order/6ly_hong.png"
+              class="result-item-image"
+              alt=""
+            />
+            <div class="result-item-details">
+              <h2 class="result-item-name">6 ly vàng</h2>
+              <div class="result-item-price">
+                <span class="result-item-price-root">20.000đ</span>
+                <span class="result-item-price-discount">20.000đ</span>
+              </div>
+            </div>
+          </div>
+          <div class="search-result-item">
+            <img
+              src="../assets/images/Order/6ly_hong.png"
+              class="result-item-image"
+              alt=""
+            />
+            <div class="result-item-details">
+              <h2 class="result-item-name">6 ly vàng</h2>
+              <div class="result-item-price">
+                <span class="result-item-price-root">20.000đ</span>
+                <span class="result-item-price-discount">20.000đ</span>
+              </div>
+            </div>
+          </div>
+          <div class="search-result-item">
+            <img
+              src="../assets/images/Order/6ly_hong.png"
+              class="result-item-image"
+              alt=""
+            />
+            <div class="result-item-details">
+              <h2 class="result-item-name">6 ly vàng</h2>
+              <div class="result-item-price">
+                <span class="result-item-price-root">20.000đ</span>
+                <span class="result-item-price-discount">20.000đ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="order-user">
         <div class="shopping">
           <ion-icon name="cart-outline" class="cart" id="cart"></ion-icon>

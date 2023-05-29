@@ -110,6 +110,11 @@ a:hover {
   width: 15rem;
 }
 
+#order-header .search-box {
+  width: 50rem;
+  position: relative;
+}
+
 #order-header .order-search {
   width: 50rem;
   position: relative;
@@ -138,6 +143,47 @@ a:hover {
 #order-header .order-search input:focus {
   border: 1px solid var(--main-color);
 }
+
+.search-result {
+  position: absolute;
+  top: 100;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #f9f9f9;
+}
+.search-result .search-result-item {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+.search-result .search-result-item:hover {
+  background-color: #e5e5e5;
+}
+.search-result .search-result-item .result-item-image {
+  width: 40px;
+  object-fit: cover;
+}
+.search-result .search-result-item h2 {
+  font-family: Balow;
+}
+.search-result .search-result-item .result-item-price-root {
+  font-weight: 800;
+  color: var(--text-color);
+  margin-top: 8px;
+  margin-right: 5px;
+}
+.search-result .search-result-item .result-item-price-discount {
+  font-weight: 800;
+  color: #666;
+  text-decoration: line-through;
+}
+
 #order-header .order-user {
   display: flex;
   align-items: center;

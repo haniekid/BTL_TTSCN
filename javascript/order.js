@@ -1,3 +1,12 @@
+import {
+  instant_data,
+  order_fresh_fruit_data,
+  order_hots_data,
+  order_macchiato_cream_data,
+  order_milk_tea_data,
+  order_sua_chua_data,
+} from '../assets/data/product_data';
+
 document.addEventListener('DOMContentLoaded', function () {
   const select = (el, all = false) => {
     el = el.trim();
@@ -388,4 +397,24 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // on('click', '.item-increase', increment(this.parentNode.parentNode.id));
+
+  // Xử lý chức năng tìm kiếm
+  let results = [],
+    resultTmp = [];
+  let searchValue = document.getElementById('input-search');
+  console.log(searchValue);
+  function handleSearch() {
+    resultTmp = order_fresh_fruit_data.filter(
+      (item) => item.title.toLowerCase() == searchValue.value.toLowerCase()
+    );
+    console.log(resultTmp);
+  }
+  searchValue.addEventListener('onchange', () => {
+    console.log(searchValue.value);
+  });
 });
+let searchValue = document
+  .getElementById('input-search')
+  .addEventListener('keyup', (e) => {
+    console.log(searchValue.value);
+  });
