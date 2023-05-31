@@ -19,9 +19,10 @@
       referrerpolicy="no-referrer"
     />
     <script
-      src="https://code.jquery.com/jquery-3.6.4.js"
-      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script type="module" src="../javascript/orderGenerate.js"></script>
     <link rel="stylesheet" href="../css/Order.css" />
@@ -32,14 +33,19 @@
       <a href="./TrangChu.html" class="order-logo">
         <img src="../assets/images/Order/logo.png" alt="Trang chu" />
       </a>
-      <form action="" class="order-search">
-        <ion-icon name="search-outline" id="btn-search"></ion-icon>
-        <input
-          type="text"
-          class="input-search"
-          placeholder="Tìm kiếm sản phẩm..."
-        />
-      </form>
+      <div class="search-box">
+        <form action="" class="order-search">
+          <ion-icon name="search-outline" id="btn-search"></ion-icon>
+          <input
+            type="text"
+            class="input-search"
+            id="input-search"
+            placeholder="Tìm kiếm sản phẩm..."
+            autocomplete="off"
+          />
+        </form>
+        <div class="search-result hidden" id="search-result"></div>
+      </div>
       <div class="order-user">
         <div class="shopping">
           <ion-icon name="cart-outline" class="cart" id="cart"></ion-icon>
@@ -50,31 +56,7 @@
               <button class="card-remove">Xóa tất cả</button>
             </div>
             <div class="listCard" id="listCard">
-              <div class="card-item" id="">
-                <div class="card-item-left">
-                  <img
-                    src="../assets/images/Order/6ly_hong.png"
-                    alt=""
-                    class="item-img"
-                  />
-                  <div class="item-info">
-                    <div class="item-name">Trà Sữa Phô Mai Tươi (M)</div>
-                    <div class="item-customize">70% đường,100% đá,</div>
-                    <div class="item-total">
-                      <span class="item-price change-quantity">25.000đ</span>
-                      <span> x </span>
-                      <span class="item-mount decrease">1</span>
-                      <span> = </span>
-                      <span class="item-total-price">25.000đ</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-item-right">
-                  <div class="change-quantity item-decrease">-</div>
-                  <div class="amount">1</div>
-                  <div class="change-quantity increase">+</div>
-                </div>
-              </div>
+              Bạn chưa có sản phẩm nào trong giỏ hàng
             </div>
             <div class="card-group-bottom">
               <div class="card-ss2">
