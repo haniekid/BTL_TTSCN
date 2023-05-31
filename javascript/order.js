@@ -389,9 +389,9 @@ const generateCartItems = () => {
                       </div>
                     </div>
                     <div class="card-item-right">
-                      <div class="item-change-quantity item-decrease change-quantity">-</div>
+                      <div class="item-change-quantity item-decrease">-</div>
                       <div class="item-amount amount">${item.quantity}</div>
-                      <div class="item-change-quantity item-increase change-quantity">+</div>
+                      <div class="item-change-quantity item-increase">+</div>
                     </div>
                   </div>`;
       })
@@ -429,20 +429,8 @@ on('click', '.btn-price-product', addToCard);
 
 // Lặp qua danh sách các button và gán sự kiện "click"
 // Lấy danh sách tất cả các phần tử .item-change-quantity
-function updateCart() {
-  window.requestAnimationFrame(updateCart);
-}
-updateCart();
+window.addEventListener('DOMContentLoaded', function () {
+  let buttons = this.document.querySelectorAll('.item-change-quantity');
 
-// Thêm sự kiện "click" cho mỗi phần tử
-buttons.forEach(function (button) {
-  button.addEventListener('click', () => {
-    // Lấy id của phần tử cha .card-item
-    // var productId = event.target.closest('.card-item').id;
-    // console.log('Clicked button for product:', productId);
-    alert('click');
-    // Xử lý các thay đổi số lượng sản phẩm tương ứng với nút được click
-  });
+  console.log(buttons);
 });
-
-// on('click', '.item-increase', increment(this.parentNode.parentNode.id));
