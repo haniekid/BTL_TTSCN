@@ -183,6 +183,7 @@ function renderSearch(results) {
       `;
     });
     searchResult.innerHTML = htmls.join('');
+    sessionStorage.setItem('resultSearch', htmls);
     searchResult.classList.remove('hidden');
   } else {
     searchResult.innerHTML = '';
@@ -237,9 +238,6 @@ onscroll(window, () => {
 let card = select('#card');
 on('click', '#cart', () => {
   card.classList.toggle('active');
-});
-onscroll(window, () => {
-  card.classList.remove('active');
 });
 /**
  * Xử lý chức năng ẩn hiện popup
@@ -341,7 +339,8 @@ const remainingHeight = popupHeight - productInfoHeight;
 // set the max-height of the product-customize section
 select('.product-customize').style.maxHeight = remainingHeight + 'px';
 
-// Xử lý sự kiện thêm vào giỏ hàng
+/* Xử lý chức năng card
+ */
 let quantity = select('.quantity');
 let listCard = select('.listCard');
 let totalPriceCard = select('.card-ss2-four');
@@ -350,8 +349,8 @@ let cardItemTitle = select('.name');
 let itemAddTitle = select('#pp-product-name');
 let itemAddImg = select('#pp-product-img');
 let itemAddPrice = totalPrice / amount;
-
-let basket = JSON.parse(localStorage.getItem('cart_data')) || [];
+let clearBtn = select('.card-remove');
+let alert = '';
 
 const productAdd = {
   id: '',
@@ -361,76 +360,184 @@ const productAdd = {
   quantity: '',
 };
 
-const generateCartItems = () => {
-  if (basket.length !== 0) {
-    return (listCard.innerHTML = basket
-      .map((item) => {
-        return `<div class="card-item" id="${item.id}">
-                    <div class="card-item-left">
-                      <img
-                        src=${item.img}
-                        alt=""
-                        class="item-img"
-                      />
-                      <div class="item-info">
-                        <div class="item-name">${item.title} (M)</div>
-                        <div class="item-customize">70% đường,100% đá,</div>
-                        <div class="item-total">
-                          <span class="item-price">${item.price}đ</span>
-                          <span> x </span>
-                          <span class="item-mount amount">${
-                            item.quantity
-                          }</span>
-                          <span> = </span>
-                          <span class="item-total-price ">${(
-                            item.price * item.quantity
-                          ).toFixed(3)}đ</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-item-right">
-                      <div class="item-change-quantity item-decrease">-</div>
-                      <div class="item-amount amount">${item.quantity}</div>
-                      <div class="item-change-quantity item-increase">+</div>
-                    </div>
-                  </div>`;
-      })
-      .join(''));
-  } else {
-    listCard.innerHTML = 'Bạn không có sản phẩm nào';
+// Hàm xử lý chức năng clear cart
+function clearCart() {
+  const cart = listCard.querySelectorAll('.card-item');
+  if (cart.length > 0) {
+    alert = 'Bạn có chắc muốn xóa tất cả?';
+    var confirmed = displayAlert(alert, 'confirm');
+    if (confirmed) {
+      cart.forEach((item) => {
+        listCard.removeChild(item);
+      });
+    }
+    localStorage.removeItem('cart_data');
+    setCartToDefault();
   }
-};
-window.addEventListener('load', generateCartItems);
+}
+clearBtn.addEventListener('click', clearCart);
 
-const calculation = () => {
-  let totalQuantity = basket.map((x) => x.quantity).reduce((x, y) => x + y, 0);
-  let totalPrice = basket
+function displayAlert(alert, type) {
+  switch (type) {
+    case 'alert':
+      alert(alert);
+      break;
+    case 'confirm':
+      return confirm(alert);
+  }
+}
+function setCartToDefault() {
+  totalPriceCard.innerHTML = '0đ';
+  totalQuantityCard.innerHTML = 0;
+  listCard.innerHTML = 'Bạn chưa có sản phẩm nào trong giỏ hàng';
+  quantity.innerHTML = 0;
+}
+function setPopupToDefault() {}
+
+// edit quantity
+function editQuantity(e) {
+  const element = e.currentTarget.parentElement.parentElement;
+  var itemQuantity = $(this).siblings('.item-amount');
+  var amount = parseInt(itemQuantity.text());
+  let items = getLocalStorage('cart_data');
+
+  // Kiểm tra lớp của nút được nhấp để xác định hành động là giảm hay tăng
+  if ($(this).hasClass('item-decrease')) {
+    // Nếu giá trị nhỏ hơn 1 thì sẽ xóa phần tử
+    if (amount > 1) {
+      amount--;
+      console.log(element.id);
+      // editLocalStorage(element.id, amount, 'cart_data');
+    } else {
+      listCard.removeChild(element);
+      removeFromLocalStorage(element.id, 'cart_data');
+    }
+  } else if ($(this).hasClass('item-increase')) {
+    // Tăng giá trị amount
+    amount++;
+    editLocalStorage(element.id, amount, 'cart_data');
+  }
+
+  // Cập nhật giá trị mới vào phần tử amount
+  if (amount == 0) {
+    setCartToDefault();
+  } else {
+    itemQuantity.text(amount);
+    calculation(items);
+    setUpItems();
+  }
+}
+
+// Hàm add to localStorage
+function addToLocalStorage(key, value) {
+  let items = getLocalStorage(key);
+  items.push(value);
+  localStorage.setItem(key, JSON.stringify(items));
+}
+function getLocalStorage(key) {
+  return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+}
+function removeFromLocalStorage(id, key) {
+  let items = getLocalStorage(key);
+
+  items = items.filter(function (item) {
+    return item.id !== id;
+  });
+
+  localStorage.setItem(key, JSON.stringify(items));
+}
+function editLocalStorage(id, quantity, key) {
+  let items = getLocalStorage(key);
+
+  items = items.map(function (item) {
+    if (item.id === id) {
+      item.quantity = quantity;
+    }
+  });
+  localStorage.setItem(key, JSON.stringify(items));
+}
+function setUpItems(key) {
+  let items = getLocalStorage(key);
+  if (items.length > 0) {
+    listCard.innerHTML = '';
+    items.forEach((item) => createListItem(item.id, item));
+    calculation(items);
+  } else {
+    listCard.innerHTML = 'Bạn chưa có sản phẩm nào trong giỏ hàng';
+  }
+}
+
+const calculation = (items) => {
+  let totalQuantity = items.map((x) => x.quantity).reduce((x, y) => x + y, 0);
+  let totalPrice = items
     .map((x) => x.price * x.quantity)
     .reduce((x, y) => x + y, 0);
   quantity.innerHTML = totalQuantity;
   totalQuantityCard.innerHTML = totalQuantity;
   totalPriceCard.innerHTML = totalPrice.toFixed(3) + 'đ';
 };
-window.addEventListener('load', calculation);
+function createListItem(id, item) {
+  const element = document.createElement('div');
+  element.id = id;
+  element.classList.add('card-item');
+  element.innerHTML = `
+    <div class="card-item-left">
+      <img
+        src=${item.img}
+        alt=""
+        class="item-img"
+      />
+      <div class="item-info">
+        <div class="item-name">${item.title} (M)</div>
+        <div class="item-customize">70% đường,100% đá,</div>
+        <div class="item-total">
+          <span class="item-price">${item.price}đ</span>
+          <span> x </span>
+          <span class="item-mount amount">${item.quantity}</span>
+          <span> = </span>
+          <span class="item-total-price ">${(
+            item.price * item.quantity
+          ).toFixed(3)}đ</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-item-right">
+      <div class="item-change-quantity item-decrease">-</div>
+      <div class="item-amount amount">${item.quantity}</div>
+      <div class="item-change-quantity item-increase">+</div>
+    </div>
+  `;
+
+  element
+    .querySelector('.item-decrease')
+    .addEventListener('click', editQuantity);
+  element
+    .querySelector('.item-increase')
+    .addEventListener('click', editQuantity);
+
+  listCard.appendChild(element);
+}
+window.addEventListener('DOMContentLoaded', setUpItems('cart_data'));
+
+// const productAdd = {
+//   id: '',
+//   img: '',
+//   title: '',
+//   price: '',
+//   quantity: '',
+// };
 
 // Xử lý chức năng thêm vào cart
 function addToCard() {
+  let items = getLocalStorage('cart_data');
   productAdd.id = Date.now();
   productAdd.img = itemAddImg.src;
   productAdd.title = itemAddTitle.innerHTML;
   productAdd.quantity = amount;
   productAdd.price = itemAddPrice.toFixed(3);
-  basket.push(productAdd);
-  localStorage.setItem('cart_data', JSON.stringify(basket));
-  calculation();
-  generateCartItems();
+  items.push(productAdd);
+  localStorage.setItem('cart_data', JSON.stringify(items));
+  calculation(items);
+  setUpItems('cart_data');
 }
 on('click', '.btn-price-product', addToCard);
-
-// Lặp qua danh sách các button và gán sự kiện "click"
-// Lấy danh sách tất cả các phần tử .item-change-quantity
-window.addEventListener('DOMContentLoaded', function () {
-  let buttons = this.document.querySelectorAll('.item-change-quantity');
-
-  console.log(buttons);
-});

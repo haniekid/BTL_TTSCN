@@ -208,3 +208,34 @@ function init6() {
 }
 init6();
 /* ------------------ Generate code end ------------------ */
+
+/* ------------------ Generate search results ------------- */
+// function renderSearch(results) {
+//   if (results.length != 0) {
+//     var htmls = results.map((product) => {
+//       return `
+//         <div class="search-result-item">
+//         <img
+//           src="${product.image}"
+//           class="result-item-image product-thumb"
+//           alt=""
+//         />
+//         <div class="result-item-details">
+//           <h2 class="result-item-name product-name">${product.title}</h2>
+//           <div class="result-item-price">
+//             <span class="result-item-price-root price-discount">${product.discount}</span>
+//             <span class="result-item-price-discount cost">${product.price}</span>
+//           </div>
+//         </div>
+//       </div>
+//       `;
+//     });
+//     searchResult.innerHTML = htmls.join('');
+//     sessionStorage.setItem('resultSearch', htmls);
+//     searchResult.classList.remove('hidden');
+//   } else {
+//     searchResult.innerHTML = '';
+//     searchResult.classList.add('hidden');
+//   }
+// }
+// inputSearch.addEventListener('keyup', handleSearch);
