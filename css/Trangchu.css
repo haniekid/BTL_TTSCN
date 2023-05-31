@@ -80,8 +80,8 @@ h1.title {
 }
 
 .img-title {
-  height: 30px;
-  width: 315px;
+  height: 30px !important;
+  width: 315px !important;
 }
 
 .btn-show-more {
@@ -190,7 +190,6 @@ h1.title {
   border-radius: 100rem;
   background-color: var(--yellow-color);
   cursor: pointer;
-  
 }
 
 .btn-search i {
@@ -684,7 +683,7 @@ p.description {
       rgba(51, 51, 51, 0.86),
       rgba(51, 51, 51, 0.86)
     ),
-    url('./../assets/images/trangchu/footer_bg.png');
+    url("./../assets/images/trangchu/footer_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
