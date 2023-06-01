@@ -6,6 +6,7 @@ import {
   order_milk_tea_data,
   order_sua_chua_data,
 } from '../assets/data/product_data.js';
+const CART_DATA = 'cart_data';
 const select = (el, all = false) => {
   el = el.trim();
   if (all) {
@@ -288,7 +289,8 @@ $('.customize-title').click(function () {
 // Lấy giá sản phẩm giảm giá
 var amount = 1;
 var priceDiscount = parseFloat(select('#pp-product-price').innerHTML);
-var totalPrice = priceDiscount * amount;
+var totalPrice = priceDiscount * amount,
+  itemPrice = priceDiscount * amount;
 
 on(
   'click',
@@ -299,12 +301,12 @@ on(
       if (parseInt($amount.text()) > 1) {
         $amount.text(parseInt($amount.text()) - 1);
         amount--;
-        totalPrice -= priceDiscount;
+        totalPrice -= itemPrice;
       }
     } else if ($(this).hasClass('increase')) {
       $amount.text(parseInt($amount.text()) + 1);
       amount++;
-      totalPrice += priceDiscount;
+      totalPrice += itemPrice;
     }
     $('.btn-price-product').text(`+ ${totalPrice.toFixed(3)}đ`);
   },
@@ -315,9 +317,11 @@ $("input[name='topping']").on('change', function () {
   var checkboxValue = $(this).siblings('label').attr('value');
 
   if ($(this).is(':checked')) {
-    totalPrice += parseFloat(checkboxValue);
+    totalPrice += parseFloat(checkboxValue) * amount;
+    itemPrice += parseFloat(checkboxValue);
   } else {
-    totalPrice -= parseFloat(checkboxValue);
+    totalPrice -= parseFloat(checkboxValue) * amount;
+    itemPrice -= parseFloat(checkboxValue);
   }
 
   // Cập nhật giá trị lên button
@@ -348,7 +352,6 @@ let totalQuantityCard = select('.card-ss2-two');
 let cardItemTitle = select('.name');
 let itemAddTitle = select('#pp-product-name');
 let itemAddImg = select('#pp-product-img');
-let itemAddPrice = totalPrice / amount;
 let clearBtn = select('.card-remove');
 let alert = '';
 
@@ -371,7 +374,7 @@ function clearCart() {
         listCard.removeChild(item);
       });
     }
-    localStorage.removeItem('cart_data');
+    localStorage.removeItem(CART_DATA);
     setCartToDefault();
   }
 }
@@ -392,39 +395,62 @@ function setCartToDefault() {
   listCard.innerHTML = 'Bạn chưa có sản phẩm nào trong giỏ hàng';
   quantity.innerHTML = 0;
 }
-function setPopupToDefault() {}
+function setPopupToDefault() {
+  let topping = document.querySelectorAll('.topping');
+  topping.forEach((item) => {
+    if (item.checked) {
+      item.checked = false;
+    }
+  });
+  $('.btn-price-product').text(
+    `+ ${parseFloat(PopupPrice.innerHTML).toFixed(3)}đ`
+  );
+  document.querySelector('#popup-amount').innerHTML = 1;
+}
 
 // edit quantity
 function editQuantity(e) {
   const element = e.currentTarget.parentElement.parentElement;
   var itemQuantity = $(this).siblings('.item-amount');
+  let itemAmount = element.querySelectorAll('.item-amount');
   var amount = parseInt(itemQuantity.text());
-  let items = getLocalStorage('cart_data');
+  var totalQuantity = totalQuantityCard.innerHTML;
+  let itemTotalPrice = element.querySelector('.item-total-price');
+  let totalPrice = parseInt(itemTotalPrice.innerHTML);
+  let itemPrice = parseInt(element.querySelector('.item-price').innerHTML);
 
   // Kiểm tra lớp của nút được nhấp để xác định hành động là giảm hay tăng
   if ($(this).hasClass('item-decrease')) {
+    --totalQuantity;
+    totalPrice -= itemPrice;
     // Nếu giá trị nhỏ hơn 1 thì sẽ xóa phần tử
     if (amount > 1) {
-      amount--;
-      console.log(element.id);
-      // editLocalStorage(element.id, amount, 'cart_data');
+      --amount;
+
+      editLocalStorage(element.id, amount, CART_DATA);
     } else {
       listCard.removeChild(element);
-      removeFromLocalStorage(element.id, 'cart_data');
+      removeFromLocalStorage(element.id, CART_DATA);
     }
   } else if ($(this).hasClass('item-increase')) {
     // Tăng giá trị amount
-    amount++;
-    editLocalStorage(element.id, amount, 'cart_data');
+    ++amount;
+    ++totalQuantity;
+    totalPrice += itemPrice;
+    editLocalStorage(element.id, amount, CART_DATA);
   }
 
   // Cập nhật giá trị mới vào phần tử amount
-  if (amount == 0) {
+  if (totalQuantity == 0) {
     setCartToDefault();
   } else {
-    itemQuantity.text(amount);
+    itemAmount.forEach((item) => (item.innerText = amount));
+    itemTotalPrice.innerHTML = totalPrice.toFixed(3) + 'đ';
+
+    // totalQuantityCard.innerHTML = totalQuantity;
+    let items = getLocalStorage(CART_DATA);
     calculation(items);
-    setUpItems();
+    // setUpItems(CART_DATA);
   }
 }
 
@@ -450,9 +476,10 @@ function editLocalStorage(id, quantity, key) {
   let items = getLocalStorage(key);
 
   items = items.map(function (item) {
-    if (item.id === id) {
+    if (item.id == id) {
       item.quantity = quantity;
     }
+    return item;
   });
   localStorage.setItem(key, JSON.stringify(items));
 }
@@ -476,6 +503,7 @@ const calculation = (items) => {
   totalQuantityCard.innerHTML = totalQuantity;
   totalPriceCard.innerHTML = totalPrice.toFixed(3) + 'đ';
 };
+
 function createListItem(id, item) {
   const element = document.createElement('div');
   element.id = id;
@@ -493,7 +521,7 @@ function createListItem(id, item) {
         <div class="item-total">
           <span class="item-price">${item.price}đ</span>
           <span> x </span>
-          <span class="item-mount amount">${item.quantity}</span>
+          <span class="item-amount amount">${item.quantity}</span>
           <span> = </span>
           <span class="item-total-price ">${(
             item.price * item.quantity
@@ -517,27 +545,19 @@ function createListItem(id, item) {
 
   listCard.appendChild(element);
 }
-window.addEventListener('DOMContentLoaded', setUpItems('cart_data'));
-
-// const productAdd = {
-//   id: '',
-//   img: '',
-//   title: '',
-//   price: '',
-//   quantity: '',
-// };
+window.addEventListener('DOMContentLoaded', setUpItems(CART_DATA));
 
 // Xử lý chức năng thêm vào cart
 function addToCard() {
-  let items = getLocalStorage('cart_data');
-  productAdd.id = Date.now();
+  productAdd.id = new Date().getTime().toString();
   productAdd.img = itemAddImg.src;
   productAdd.title = itemAddTitle.innerHTML;
   productAdd.quantity = amount;
-  productAdd.price = itemAddPrice.toFixed(3);
-  items.push(productAdd);
-  localStorage.setItem('cart_data', JSON.stringify(items));
-  calculation(items);
-  setUpItems('cart_data');
+  productAdd.price = itemPrice.toFixed(3);
+  console.log(productAdd.price + ' ' + itemPrice + ' ' + totalPrice);
+  createListItem(productAdd.id, productAdd);
+  setPopupToDefault();
+  addToLocalStorage(CART_DATA, productAdd);
+  setUpItems(CART_DATA);
 }
 on('click', '.btn-price-product', addToCard);
