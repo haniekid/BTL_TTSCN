@@ -117,7 +117,7 @@ h1.title {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 4.3rem;
+  height: 5.4rem;
 }
 
 .main-menu {
@@ -127,9 +127,22 @@ h1.title {
   align-items: center;
 }
 
+#header #modal {
+  display: none;
+}
+
+.fa-bars {
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  /* display: none; */
+}
+
 #header_logo {
   display: flex;
-  width: 200px;
+  width: auto;
   height: auto;
   align-items: center;
 }
@@ -195,7 +208,6 @@ h1.title {
 .btn-search i {
   transform: translateY(45%);
 }
-
 /* header section ends */
 
 /* home section starts */
@@ -798,7 +810,114 @@ p.description {
 
 /* footer section ends */
 
-/* .contact-info {
-  display: flex;
-  justify-content: space-between;
-} */
+/* media queries starts*/
+@media (max-width: 768px) {
+  html {
+    font-size: 95%;
+  }
+
+  section {
+    padding: 1rem 7%;
+  }
+  /* header starts */
+  .fa-bars {
+    display: block;
+    color: #fff;
+  }
+  #header #modal {
+    display: block;
+  }
+  .btn-search {
+    display: none;
+  }
+  .main-menu {
+    display: none;
+  }
+  .navbar-block {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+  }
+  /* .navbar-block #header {
+    position: fixed;
+    box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.1);
+  }
+  .navbar-block .navbar__link {
+    display: block;
+    transition: 0.3s linear;
+    color: #999;
+    padding-left: 15rem;
+    margin-bottom: 2rem;
+  }
+  .navbar-block .navbar__link:hover {
+    color: rgb(255, 102, 0);
+  } */
+
+  /* products starts */
+  #products .cardList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* story starts */
+  .story-info {
+    position: absolute;
+    top: 130%;
+    transform: translateY(-50%);
+    left: 20%;
+    text-align: center;
+  }
+
+  /* franchise starts */
+  #franchise {
+    padding: 1rem 7%;
+    margin: 0;
+    margin-top: 27rem;
+  }
+  .franchise-info img {
+    display: none;
+  }
+
+  .franchise-info {
+    margin: 0 0 0 2.8rem;
+    max-width: 80%;
+  }
+
+  /* news */
+  .news-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* footer */
+  #footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer-left {
+    width: 100%;
+  }
+  .footer-right {
+    width: 100%;
+    margin-left: 13%;
+  }
+  .footer-right .card_3 {
+    margin-left: 10%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 90%;
+  }
+
+  section {
+    padding: 1rem 4%;
+  }
+}
+/* media queries ends*/
