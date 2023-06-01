@@ -43,3 +43,18 @@ window.onscroll = () => {
     document.querySelector("#nav").classList.remove("fixed");
   }
 };
+
+var modal = document.getElementById("modal");
+var navbar = document.getElementById("header__navbar-modal");
+var check = true;
+
+modal.addEventListener("click", function (event) {
+  if (check) {
+    ul.classList.add("navbar-block");
+    check = false;
+  } else {
+    ul.classList.remove("navbar-block");
+    check = true;
+  }
+  // console.log(check);
+});
